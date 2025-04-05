@@ -1,6 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://p6topo8tswhw"]
+[gd_scene load_steps=10 format=3 uid="uid://p6topo8tswhw"]
 
 [ext_resource type="Script" uid="uid://c8ycnna57ggbv" path="res://player.gd" id="1_xhfnw"]
+[ext_resource type="ArrayMesh" uid="uid://bsrdgmt2fu12q" path="res://assets/mirror.res" id="2_kpjcp"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_xhfnw"]
 radius = 0.4
@@ -47,13 +48,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.336184, -0.166754, -0.57674
 unique_name_in_owner = true
 mesh = SubResource("CylinderMesh_xhfnw")
 
-[node name="Mirror" type="MeshInstance3D" parent="Camera3D/HeldItems"]
-unique_name_in_owner = true
-mesh = SubResource("CylinderMesh_xhfnw")
-
 [node name="HotCold" type="MeshInstance3D" parent="Camera3D/HeldItems"]
 unique_name_in_owner = true
 mesh = SubResource("TextMesh_xhfnw")
+
+[node name="Mirror" type="MeshInstance3D" parent="Camera3D/HeldItems"]
+unique_name_in_owner = true
+transform = Transform3D(0.105655, 0, 0.226577, -0.0393447, 0.246202, 0.0183467, -0.223135, -0.043412, 0.104049, 0, 0, 0)
+mesh = ExtResource("2_kpjcp")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
 

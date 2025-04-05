@@ -21,6 +21,7 @@ func _ready() -> void:
 		var new_mat: StandardMaterial3D = held_item.get_active_material(0).duplicate()
 		new_mat.no_depth_test = true
 		new_mat.render_priority = 1
+		new_mat.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
 		held_item.material_override = new_mat
 
 func _physics_process(delta: float) -> void:

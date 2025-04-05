@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://dqq2ikm3mcnhx"]
+[gd_scene load_steps=6 format=3 uid="uid://dqq2ikm3mcnhx"]
 
 [ext_resource type="Material" uid="uid://bh213bu1m3npl" path="res://Materials/brick.tres" id="1_ipx0u"]
 [ext_resource type="PackedScene" uid="uid://c8crg4715tk4u" path="res://Scenes/hot_cold_spot.tscn" id="2_ejl4w"]
 [ext_resource type="PackedScene" uid="uid://bwtwjlhrpa181" path="res://Scenes/PuzzleDoor.tscn" id="3_okl1h"]
 [ext_resource type="PackedScene" uid="uid://cxwdrbb3xtufd" path="res://Scenes/Interactables/item_pillar.tscn" id="4_n7p4q"]
+[ext_resource type="PackedScene" uid="uid://catipv0japc8o" path="res://Scenes/PuzzleLight.tscn" id="5_x4ak0"]
 
 [node name="HotColdPuzzle" type="Node3D"]
 
@@ -50,3 +51,6 @@ held_item = 3
 
 [node name="Item Pillar2" parent="." instance=ExtResource("4_n7p4q")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -40.5294, 1.5, 14.4877)
+
+[node name="PuzzleLight" parent="." instance=ExtResource("5_x4ak0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -41.2594, 7.8671, 17.2737)
