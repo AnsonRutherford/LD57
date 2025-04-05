@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://bwtwjlhrpa181"]
+[gd_scene load_steps=5 format=3 uid="uid://bwtwjlhrpa181"]
 
-[ext_resource type="Script" uid="uid://cemfe2wa6jxtx" path="res://Scenes/puzzle_door.gd" id="1_rsw5k"]
+[ext_resource type="Script" uid="uid://cemfe2wa6jxtx" path="res://Scripts/puzzle_door.gd" id="1_rsw5k"]
+[ext_resource type="Material" uid="uid://bh213bu1m3npl" path="res://Materials/brick.tres" id="2_s542k"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_rbe8o"]
 size = Vector3(0.2, 7, 3.5)
@@ -12,6 +13,7 @@ data = PackedVector3Array(-0.1, 3.5, 1.75, 0.1, 3.5, 1.75, -0.1, -3.5, 1.75, 0.1
 script = ExtResource("1_rsw5k")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+material_override = ExtResource("2_s542k")
 mesh = SubResource("BoxMesh_rbe8o")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D"]

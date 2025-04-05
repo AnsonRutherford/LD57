@@ -5,3 +5,4 @@
 [resource]
 render_priority = 0
 shader = ExtResource("1_ka2em")
+shader_parameter/pixel_scale = 1024.0

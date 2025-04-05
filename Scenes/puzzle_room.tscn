@@ -1,12 +1,15 @@
-[gd_scene load_steps=3 format=3 uid="uid://c2fbb4atf5n6p"]
+[gd_scene load_steps=6 format=3 uid="uid://c2fbb4atf5n6p"]
 
 [ext_resource type="PackedScene" uid="uid://cxwdrbb3xtufd" path="res://Scenes/Interactables/Mirror Pillar.tscn" id="1_gka4x"]
+[ext_resource type="Material" uid="uid://bh213bu1m3npl" path="res://Materials/brick.tres" id="1_m020c"]
 [ext_resource type="Script" uid="uid://e8fkydpih07x" path="res://Scripts/light_puzzle.gd" id="1_psrkm"]
+[ext_resource type="PackedScene" uid="uid://bwtwjlhrpa181" path="res://Scenes/PuzzleDoor.tscn" id="3_dnawa"]
+[ext_resource type="PackedScene" uid="uid://d25mnqq71uc2" path="res://Scenes/light_beam.tscn" id="4_8kpn7"]
 
 [node name="PuzzleRoom" type="Node3D"]
-script = ExtResource("1_psrkm")
 
 [node name="CSGCombiner3D" type="CSGCombiner3D" parent="."]
+material_override = ExtResource("1_m020c")
 operation = 2
 use_collision = true
 
@@ -34,3 +37,14 @@ transform = Transform3D(0.613955, 0, 0.789341, 0, 1, 0, -0.789341, 0, 0.613955, 
 [node name="Mirror Pillar" parent="." instance=ExtResource("1_gka4x")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 1.48696, 0)
 has_mirror = true
+angles = Array[float]([0.0, 90.0, 180.0, 270.0])
+
+[node name="PuzzleDoor" parent="." instance=ExtResource("3_dnawa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 5)
+
+[node name="Light Source" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 3, 7)
+script = ExtResource("1_psrkm")
+
+[node name="LightBeam" parent="Light Source" instance=ExtResource("4_8kpn7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.1, 0, 0, 0)
