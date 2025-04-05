@@ -5,9 +5,11 @@ const SPEED = 5.0
 const JUMP_VELOCITY = 4.5
 
 @onready var camera: Camera3D = $Camera3D
+@onready var interact_cast: RayCast3D = $Camera3D/InteractRaycast
 
 func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	$Visual.visible = false
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -15,7 +17,7 @@ func _physics_process(delta: float) -> void:
 		velocity += get_gravity() * delta
 
 	# Handle jump.
-	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
+	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
 
 	# Get the input direction and handle the movement/deceleration.
@@ -31,6 +33,21 @@ func _physics_process(delta: float) -> void:
 		velocity.z = move_toward(velocity.z, 0, SPEED)
 
 	move_and_slide()
+	
+	# interact/pickup
+	if Input.is_action_just_pressed("interact") && interact_cast.is_colliding():
+		var collide_with: Node = interact_cast.get_collider()
+		# currently this requires the parent to have the interactable script
+		var parent: Node = collide_with.get_parent()
+		if parent.has_method("interact"):
+			parent.interact()
+	
+	if Input.is_action_just_pressed("pickup") && interact_cast.is_colliding():
+		var collide_with: Node = interact_cast.get_collider()
+		# currently this requires the parent to have the interactable script
+		var parent: Node = collide_with.get_parent()
+		if parent.has_method("pickup"):
+			parent.pickup()
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:

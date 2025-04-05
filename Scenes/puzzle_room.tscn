@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://c2fbb4atf5n6p"]
+[gd_scene load_steps=3 format=3 uid="uid://c2tahpgw12xer"]
 
 [ext_resource type="Script" uid="uid://c08b6jam7ojat" path="res://Scripts/rotate_interact.gd" id="1_gka4x"]
 
@@ -8,6 +8,7 @@
 
 [node name="CSGCombiner3D" type="CSGCombiner3D" parent="."]
 operation = 2
+use_collision = true
 
 [node name="CSGBox3D" type="CSGBox3D" parent="CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 2, 3.5)
