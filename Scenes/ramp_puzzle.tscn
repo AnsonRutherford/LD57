@@ -1,0 +1,74 @@
+[gd_scene load_steps=6 format=3 uid="uid://kuxsieegr2lq"]
+
+[ext_resource type="Material" uid="uid://bh213bu1m3npl" path="res://Materials/brick.tres" id="1_phgxn"]
+[ext_resource type="PackedScene" uid="uid://bwtwjlhrpa181" path="res://Scenes/PuzzleDoor.tscn" id="3_q0ntu"]
+[ext_resource type="PackedScene" uid="uid://cxwdrbb3xtufd" path="res://Scenes/Interactables/item_pillar.tscn" id="4_71k7q"]
+[ext_resource type="PackedScene" uid="uid://catipv0japc8o" path="res://Scenes/PuzzleLight.tscn" id="5_5imf0"]
+[ext_resource type="PackedScene" uid="uid://c2o1myo8kq4d0" path="res://Scenes/HeightRamp.tscn" id="5_phgxn"]
+
+[node name="HotColdPuzzle" type="Node3D"]
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="."]
+material_override = ExtResource("1_phgxn")
+operation = 2
+use_collision = true
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(2.27934, 0, 0, 0, 2.43161, 0, 0, 0, 1.64907, -13, 5.5, -1.61387)
+calculate_tangents = false
+flip_faces = true
+size = Vector3(27, 12, 29)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(2.27934, 0, 0, 0, 1.7, 0, 0, 0, 1.67308, -13, 9, -1)
+operation = 2
+size = Vector3(25, 10, 27)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.2189, 3.5, 17.3541)
+operation = 2
+size = Vector3(14, 6, 3)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -40.7811, 3.5, 17.3541)
+operation = 2
+size = Vector3(14, 6, 3)
+
+[node name="PuzzleDoor" parent="." instance=ExtResource("3_q0ntu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -42.5356, 4, 17.5434)
+puzzle = 1
+
+[node name="Item Pillar" parent="." instance=ExtResource("4_71k7q")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.6706, 1.5, 14.4877)
+
+[node name="Item Pillar2" parent="." instance=ExtResource("4_71k7q")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -40.5294, 1.5, 14.4877)
+
+[node name="PuzzleLight" parent="." instance=ExtResource("5_5imf0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -41.2594, 7.8671, 17.2737)
+
+[node name="RampPillar1" parent="." instance=ExtResource("4_71k7q")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.4895, 1.5, -13.5257)
+held_item = 4
+
+[node name="RampPillar2" parent="." instance=ExtResource("4_71k7q")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.8105, 1.5, -13.5257)
+held_item = 5
+
+[node name="RampPillar3" parent="." instance=ExtResource("4_71k7q")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.1185, 1.5, -13.5257)
+held_item = 6
+
+[node name="HeightRamp" parent="." instance=ExtResource("5_phgxn")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -22.906, 1.45, -22.147)
+pillar = "RampPillar1"
+
+[node name="HeightRamp2" parent="." instance=ExtResource("5_phgxn")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -18.8062, 1.45, -22.1467)
+starting_offset = 2
+pillar = "RampPillar2"
+
+[node name="HeightRamp3" parent="." instance=ExtResource("5_phgxn")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -14.706, 1.45, -22.147)
+starting_offset = 1
+pillar = "RampPillar3"

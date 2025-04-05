@@ -41,10 +41,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.9599, 1.97759, -24)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -42.5356, 4, 17.5434)
 puzzle = 1
 
-[node name="OmniLight3D" type="OmniLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -44.4303, 3.14145, 17.3371)
-light_energy = 5.0
-
 [node name="Item Pillar" parent="." instance=ExtResource("4_n7p4q")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.6706, 1.5, 14.4877)
 held_item = 3

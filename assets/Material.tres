@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://b48gy3etg874x"]
+
+[ext_resource type="Texture2D" uid="uid://cpbtt6emh78h7" path="res://models/ramp-gem-green_ImphenziaPalette01.png" id="1_utb17"]
+
+[resource]
+resource_name = "Material"
+cull_mode = 2
+albedo_texture = ExtResource("1_utb17")
+texture_filter = 0
