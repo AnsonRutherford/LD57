@@ -1,8 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://c2fbb4atf5n6p"]
+[gd_scene load_steps=3 format=3 uid="uid://c2fbb4atf5n6p"]
 
 [ext_resource type="PackedScene" uid="uid://cxwdrbb3xtufd" path="res://Scenes/Interactables/Mirror Pillar.tscn" id="1_gka4x"]
+[ext_resource type="Script" uid="uid://e8fkydpih07x" path="res://Scripts/light_puzzle.gd" id="1_psrkm"]
 
 [node name="PuzzleRoom" type="Node3D"]
+script = ExtResource("1_psrkm")
 
 [node name="CSGCombiner3D" type="CSGCombiner3D" parent="."]
 operation = 2
@@ -32,3 +34,4 @@ transform = Transform3D(0.613955, 0, 0.789341, 0, 1, 0, -0.789341, 0, 0.613955, 
 [node name="Mirror Pillar" parent="." instance=ExtResource("1_gka4x")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 1.48696, 0)
 has_mirror = true
+pillar_index = 0
