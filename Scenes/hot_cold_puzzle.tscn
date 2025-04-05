@@ -1,0 +1,40 @@
+[gd_scene load_steps=4 format=3 uid="uid://dqq2ikm3mcnhx"]
+
+[ext_resource type="Material" uid="uid://bh213bu1m3npl" path="res://Materials/brick.tres" id="1_ipx0u"]
+[ext_resource type="PackedScene" uid="uid://c8crg4715tk4u" path="res://Scenes/hot_cold_spot.tscn" id="2_ejl4w"]
+[ext_resource type="PackedScene" uid="uid://bwtwjlhrpa181" path="res://Scenes/PuzzleDoor.tscn" id="3_okl1h"]
+
+[node name="HotColdPuzzle" type="Node3D"]
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="."]
+material_override = ExtResource("1_ipx0u")
+operation = 2
+use_collision = true
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(2.27934, 0, 0, 0, 1, 0, 0, 0, 2.08399, -13, 5.5, -7)
+calculate_tangents = false
+flip_faces = true
+size = Vector3(27, 12, 29)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(2.27934, 0, 0, 0, 1, 0, 0, 0, 2.08399, -13, 5.5, -7)
+operation = 2
+size = Vector3(25, 10, 27)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.2189, 3.5, 17.3541)
+operation = 2
+size = Vector3(14, 6, 3)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -40.7811, 3.5, 17.3541)
+operation = 2
+size = Vector3(14, 6, 3)
+
+[node name="HotColdSpot" parent="." instance=ExtResource("2_ejl4w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.9599, 1.97759, -24)
+
+[node name="PuzzleDoor" parent="." instance=ExtResource("3_okl1h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -42.5356, 4, 17.5434)
+puzzle = 1

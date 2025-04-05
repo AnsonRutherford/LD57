@@ -1,6 +1,6 @@
 class_name Player extends CharacterBody3D
 
-enum HELD_ITEM {MIRROR, NONE, BOULDER_LOOT}
+enum HELD_ITEM {MIRROR, NONE, BOULDER_LOOT, HOT_COLD}
 
 const SPEED = 5.0
 const JUMP_VELOCITY = 4.5
@@ -12,6 +12,7 @@ var held_item: HELD_ITEM = HELD_ITEM.NONE
 @onready var held_item_meshes: Node3D = $Camera3D/HeldItems
 
 func _ready() -> void:
+	Globals.player = self
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	$Visual.visible = false
 	
@@ -35,7 +36,7 @@ func _physics_process(delta: float) -> void:
 		Globals.PUZZLE_SOLVED.emit(Globals.PUZZLE.LIGHT)
 	
 	if Input.is_action_just_pressed("ui_down"):
-		pass
+		handle_hold_item(HELD_ITEM.HOT_COLD)
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
@@ -65,6 +66,13 @@ func _physics_process(delta: float) -> void:
 		var parent: Node = collide_with.get_parent()
 		if parent.has_method("pickup"):
 			parent.pickup(self)
+	
+	if held_item == HELD_ITEM.HOT_COLD && $HotColdArea.has_overlapping_areas():
+		var mesh = $%HotCold
+		var nearby_areas = $HotColdArea.get_overlapping_areas()
+		var distance = self.global_position.distance_to(nearby_areas[0].global_position) * 50
+		print("distance: ", distance)
+		mesh.material_override.albedo_color = Color(255 / distance, 0, 0)
 
 func handle_hold_item(item: HELD_ITEM) -> void:
 	print("holding ", item)
@@ -73,6 +81,8 @@ func handle_hold_item(item: HELD_ITEM) -> void:
 	match item:
 		HELD_ITEM.MIRROR:
 			$%Mirror.visible = true
+		HELD_ITEM.HOT_COLD:
+			$%HotCold.visible = true
 		_:
 			$%PlaceHolder.visible = true
 
