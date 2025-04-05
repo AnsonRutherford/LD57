@@ -17,6 +17,7 @@ height = 0.1
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_xhfnw"]
 
 [node name="CharacterBody3D" type="CharacterBody3D"]
+collision_layer = 4
 script = ExtResource("1_xhfnw")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]

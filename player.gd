@@ -1,6 +1,6 @@
 class_name Player extends CharacterBody3D
 
-enum HELD_ITEM {MIRROR, NONE}
+enum HELD_ITEM {MIRROR, NONE, BOULDER_LOOT}
 
 const SPEED = 5.0
 const JUMP_VELOCITY = 4.5
@@ -81,6 +81,9 @@ func lose_held_item() -> void:
 	held_item = HELD_ITEM.NONE
 	for child in held_item_meshes.get_children():
 		child.visible = false
+
+func die() -> void:
+	print("dying")
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:

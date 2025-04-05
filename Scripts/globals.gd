@@ -8,6 +8,7 @@ var gameplay_scene: PackedScene = preload("res://Scenes/gameplay.tscn")
 var mouse_sens: float = .01
 enum PUZZLE {LIGHT}
 signal PUZZLE_SOLVED(puzzle: PUZZLE)
+signal BOULDER_TRAP
 
 func _ready() -> void:
 	print("debug mode")

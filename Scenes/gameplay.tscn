@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://iblvj5it46o8"]
+[gd_scene load_steps=10 format=3 uid="uid://iblvj5it46o8"]
 
 [ext_resource type="Script" uid="uid://dwbt24gp2w1xt" path="res://Scripts/gameplay.gd" id="1_hf1ha"]
-[ext_resource type="PackedScene" uid="uid://p33wb31v71yi" path="res://Scenes/post_processing.tscn" id="2_r8bcl"]
+[ext_resource type="PackedScene" path="res://Scenes/post_processing.tscn" id="2_r8bcl"]
 [ext_resource type="PackedScene" uid="uid://c2fbb4atf5n6p" path="res://Scenes/puzzle_room.tscn" id="3_kwrm5"]
 [ext_resource type="PackedScene" uid="uid://p6topo8tswhw" path="res://Player.tscn" id="3_m34ki"]
 [ext_resource type="PackedScene" uid="uid://bwtwjlhrpa181" path="res://Scenes/PuzzleDoor.tscn" id="4_kwrm5"]
+[ext_resource type="PackedScene" uid="uid://bkrxl2jbxg622" path="res://Scenes/BoulderRoom.tscn" id="6_rlidi"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_wbxth"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
@@ -53,3 +54,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.95617, -2.22497, -2.5034)
 
 [node name="PuzzleDoor" parent="." instance=ExtResource("4_kwrm5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.90989, 1.34371, 2.54135)
+
+[node name="BoulderRoom" parent="." instance=ExtResource("6_rlidi")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 14.7353, 0, 2.04629)

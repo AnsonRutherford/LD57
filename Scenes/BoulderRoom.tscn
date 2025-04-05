@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://bkrxl2jbxg622"]
+
+[ext_resource type="PackedScene" uid="uid://cr5op6imdbfo5" path="res://Scenes/Boulder.tscn" id="1_02360"]
+[ext_resource type="PackedScene" uid="uid://ck4e4x8jxx4k5" path="res://Scenes/Interactables/BoulderTrap.tscn" id="2_70ftb"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_w6vtc"]
+size = Vector2(20, 2)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_w6vtc"]
+data = PackedVector3Array(10, 0, 1, -10, 0, 1, 10, 0, -1, -10, 0, 1, -10, 0, -1, 10, 0, -1)
+
+[node name="BoulderRoom" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.965926, 0.258819, 0, -0.258819, 0.965926, 0, 0, 0, 1, 0, 0, 0)
+mesh = SubResource("PlaneMesh_w6vtc")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_w6vtc")
+
+[node name="Boulder" parent="." instance=ExtResource("1_02360")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.37085, 7.22168, -0.0210917)
+
+[node name="BoulderTrap" parent="." instance=ExtResource("2_70ftb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.15288, 2.041, 0.0189633)
