@@ -1,7 +1,8 @@
 [gd_scene load_steps=2 format=3 uid="uid://fk1fwyvya2su"]
 
-[ext_resource type="PackedScene" path="res://Scenes/post_processing.tscn" id="1_3bxa3"]
+[ext_resource type="PackedScene" uid="uid://p33wb31v71yi" path="res://Scenes/post_processing.tscn" id="1_3bxa3"]
 
 [node name="Start" type="Node"]
 
 [node name="Post Processing" parent="." instance=ExtResource("1_3bxa3")]
+visible = false

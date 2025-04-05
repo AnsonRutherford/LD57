@@ -4,13 +4,19 @@ extends Node
 static var instance: LightPuzzle = null
 
 @export var solution: Array[int]
+const solution_pillars := ["Pillar 1"]
 
 @onready var light_beam = $LightBeam
 
 func _ready() -> void:
 	instance = self
+	Globals.PILLAR_ITEM.connect(_on_pillar_item)
+	
+func _on_pillar_item(pillar_label: String, held_item: Player.HELD_ITEM) -> void:
+	if pillar_label in solution_pillars:
+		check_solution()
 
-static func check_solution() -> void:
+func check_solution() -> void:
 	var pillar1 = ItemPillar.registry["Pillar 1"]
 	if !pillar1.held_item == Player.HELD_ITEM.MIRROR:
 		instance.light_beam.scale.z = 28
