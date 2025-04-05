@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://p6topo8tswhw"]
+[gd_scene load_steps=9 format=3 uid="uid://p6topo8tswhw"]
 
 [ext_resource type="Script" uid="uid://c8ycnna57ggbv" path="res://player.gd" id="1_xhfnw"]
 
@@ -14,7 +14,16 @@ top_radius = 0.1
 bottom_radius = 0.1
 height = 0.1
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kpjcp"]
+
+[sub_resource type="TextMesh" id="TextMesh_xhfnw"]
+material = SubResource("StandardMaterial3D_kpjcp")
+text = "Hot Cold"
+
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_xhfnw"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_xhfnw"]
+size = Vector3(50, 50, 50)
 
 [node name="CharacterBody3D" type="CharacterBody3D"]
 collision_layer = 4
@@ -42,7 +51,18 @@ mesh = SubResource("CylinderMesh_xhfnw")
 unique_name_in_owner = true
 mesh = SubResource("CylinderMesh_xhfnw")
 
+[node name="HotCold" type="MeshInstance3D" parent="Camera3D/HeldItems"]
+unique_name_in_owner = true
+mesh = SubResource("TextMesh_xhfnw")
+
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
 
 [node name="Visual" type="MeshInstance3D" parent="."]
 mesh = SubResource("CapsuleMesh_xhfnw")
+
+[node name="HotColdArea" type="Area3D" parent="."]
+collision_layer = 0
+collision_mask = 8
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="HotColdArea"]
+shape = SubResource("BoxShape3D_xhfnw")

@@ -5,8 +5,10 @@ var active_scene: Node = null
 var main_menu_scene: PackedScene = preload("res://Scenes/main_menu.tscn")
 var gameplay_scene: PackedScene = preload("res://Scenes/gameplay.tscn")
 
+var player: Player
+
 var mouse_sens: float = .01
-enum PUZZLE {LIGHT}
+enum PUZZLE {LIGHT, HOT_COLD}
 signal PUZZLE_SOLVED(puzzle: PUZZLE)
 signal BOULDER_TRAP
 

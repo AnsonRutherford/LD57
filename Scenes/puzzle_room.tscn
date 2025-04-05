@@ -29,9 +29,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 3.5, 5)
 operation = 2
 size = Vector3(14, 6, 3)
 
-[node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(0.613955, 0, 0.789341, 0, 1, 0, -0.789341, 0, 0.613955, -1.02579, 1.28644, 2.70753)
-
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 
 [node name="Mirror Pillar" parent="." instance=ExtResource("1_gka4x")]

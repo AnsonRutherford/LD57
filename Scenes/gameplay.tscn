@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" path="res://Scenes/post_processing.tscn" id="2_r8bcl"]
 [ext_resource type="PackedScene" uid="uid://c2fbb4atf5n6p" path="res://Scenes/puzzle_room.tscn" id="3_kwrm5"]
 [ext_resource type="PackedScene" uid="uid://p6topo8tswhw" path="res://Player.tscn" id="3_m34ki"]
-[ext_resource type="PackedScene" uid="uid://bwtwjlhrpa181" path="res://Scenes/PuzzleDoor.tscn" id="4_kwrm5"]
+[ext_resource type="PackedScene" uid="uid://dqq2ikm3mcnhx" path="res://Scenes/hot_cold_puzzle.tscn" id="6_1qnfl"]
 [ext_resource type="PackedScene" uid="uid://bkrxl2jbxg622" path="res://Scenes/BoulderRoom.tscn" id="6_rlidi"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_wbxth"]
@@ -47,13 +47,12 @@ offset_bottom = 94.0
 text = "Go back to main menu"
 
 [node name="CharacterBody3D" parent="." instance=ExtResource("3_m34ki")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.387623, 0)
-
-[node name="PuzzleRoom" parent="." instance=ExtResource("3_kwrm5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.95617, -2.22497, -2.5034)
-
-[node name="PuzzleDoor" parent="." instance=ExtResource("4_kwrm5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.90989, 1.34371, 2.54135)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.76888, 3.44709, 0)
 
 [node name="BoulderRoom" parent="." instance=ExtResource("6_rlidi")]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 14.7353, 0, 2.04629)
+
+[node name="PuzzleRoom" parent="." instance=ExtResource("3_kwrm5")]
+
+[node name="HotColdPuzzle" parent="." instance=ExtResource("6_1qnfl")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -14, 0, 25.4648)
