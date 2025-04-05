@@ -32,10 +32,10 @@ func _physics_process(delta: float) -> void:
 		velocity.y = JUMP_VELOCITY
 	
 	if Input.is_action_just_pressed("ui_right"):
-		handle_hold_item(HELD_ITEM.MIRROR)
+		Globals.PUZZLE_SOLVED.emit(Globals.PUZZLE.LIGHT)
 	
 	if Input.is_action_just_pressed("ui_down"):
-		lose_held_item()
+		pass
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
