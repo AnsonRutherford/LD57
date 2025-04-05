@@ -9,10 +9,18 @@ var held_item: HELD_ITEM = HELD_ITEM.NONE
 
 @onready var camera: Camera3D = $Camera3D
 @onready var interact_cast: RayCast3D = $Camera3D/InteractRaycast
+@onready var held_item_meshes: Node3D = $Camera3D/HeldItems
 
 func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	$Visual.visible = false
+	
+	for held_item: MeshInstance3D in $Camera3D/HeldItems.get_children():
+		held_item.visible = false
+		var new_mat: StandardMaterial3D = held_item.get_active_material(0).duplicate()
+		new_mat.no_depth_test = true
+		new_mat.render_priority = 1
+		held_item.material_override = new_mat
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -61,10 +69,18 @@ func _physics_process(delta: float) -> void:
 func handle_hold_item(item: HELD_ITEM) -> void:
 	print("holding ", item)
 	held_item = item
+	
+	match item:
+		HELD_ITEM.MIRROR:
+			$%Mirror.visible = true
+		_:
+			$%PlaceHolder.visible = true
 
 func lose_held_item() -> void:
 	print("no longer holding item")
 	held_item = HELD_ITEM.NONE
+	for child in held_item_meshes.get_children():
+		child.visible = false
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:

@@ -1,9 +1,18 @@
-[gd_scene load_steps=4 format=3 uid="uid://p6topo8tswhw"]
+[gd_scene load_steps=6 format=3 uid="uid://p6topo8tswhw"]
 
 [ext_resource type="Script" uid="uid://c8ycnna57ggbv" path="res://player.gd" id="1_xhfnw"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_xhfnw"]
 radius = 0.4
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xhfnw"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_xhfnw"]
+material = SubResource("StandardMaterial3D_xhfnw")
+top_radius = 0.1
+bottom_radius = 0.1
+height = 0.1
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_xhfnw"]
 
@@ -22,6 +31,15 @@ target_position = Vector3(0, -3, 0)
 collision_mask = 2
 
 [node name="HeldItems" type="Node3D" parent="Camera3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.336184, -0.166754, -0.576746)
+
+[node name="PlaceHolder" type="MeshInstance3D" parent="Camera3D/HeldItems"]
+unique_name_in_owner = true
+mesh = SubResource("CylinderMesh_xhfnw")
+
+[node name="Mirror" type="MeshInstance3D" parent="Camera3D/HeldItems"]
+unique_name_in_owner = true
+mesh = SubResource("CylinderMesh_xhfnw")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
 
