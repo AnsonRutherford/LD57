@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://dqq2ikm3mcnhx"]
+[gd_scene load_steps=5 format=3 uid="uid://dqq2ikm3mcnhx"]
 
 [ext_resource type="Material" uid="uid://bh213bu1m3npl" path="res://Materials/brick.tres" id="1_ipx0u"]
 [ext_resource type="PackedScene" uid="uid://c8crg4715tk4u" path="res://Scenes/hot_cold_spot.tscn" id="2_ejl4w"]
 [ext_resource type="PackedScene" uid="uid://bwtwjlhrpa181" path="res://Scenes/PuzzleDoor.tscn" id="3_okl1h"]
+[ext_resource type="PackedScene" uid="uid://cxwdrbb3xtufd" path="res://Scenes/Interactables/item_pillar.tscn" id="4_n7p4q"]
 
 [node name="HotColdPuzzle" type="Node3D"]
 
@@ -38,3 +39,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.9599, 1.97759, -24)
 [node name="PuzzleDoor" parent="." instance=ExtResource("3_okl1h")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -42.5356, 4, 17.5434)
 puzzle = 1
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -44.4303, 3.14145, 17.3371)
+light_energy = 5.0
+
+[node name="Item Pillar" parent="." instance=ExtResource("4_n7p4q")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.6706, 1.5, 14.4877)
+held_item = 3
+
+[node name="Item Pillar2" parent="." instance=ExtResource("4_n7p4q")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -40.5294, 1.5, 14.4877)

@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://bkrxl2jbxg622"]
 
 [ext_resource type="PackedScene" uid="uid://cr5op6imdbfo5" path="res://Scenes/Boulder.tscn" id="1_02360"]
-[ext_resource type="PackedScene" uid="uid://ck4e4x8jxx4k5" path="res://Scenes/Interactables/BoulderTrap.tscn" id="2_70ftb"]
+[ext_resource type="PackedScene" uid="uid://dp4l7urfp78i1" path="res://Scenes/Interactables/BoulderTrap.tscn" id="2_70ftb"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_w6vtc"]
 size = Vector2(20, 2)

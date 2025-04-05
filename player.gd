@@ -67,15 +67,19 @@ func _physics_process(delta: float) -> void:
 		if parent.has_method("pickup"):
 			parent.pickup(self)
 	
-	if held_item == HELD_ITEM.HOT_COLD && $HotColdArea.has_overlapping_areas():
+	if held_item == HELD_ITEM.HOT_COLD:
 		var mesh = $%HotCold
-		var nearby_areas = $HotColdArea.get_overlapping_areas()
-		var distance = self.global_position.distance_to(nearby_areas[0].global_position) * 50
-		print("distance: ", distance)
-		mesh.material_override.albedo_color = Color(255 / distance, 0, 0)
+		if $HotColdArea.has_overlapping_areas():
+			var nearby_areas = $HotColdArea.get_overlapping_areas()
+			var distance = self.global_position.distance_to(nearby_areas[0].global_position) * 50
+			print("distance: ", distance)
+			mesh.material_override.albedo_color = Color(255 / distance, 0, 0)
+		else:
+			mesh.material_override.albedo_color = Color(255, 255, 255)
 
 func handle_hold_item(item: HELD_ITEM) -> void:
 	print("holding ", item)
+	lose_held_item()
 	held_item = item
 	
 	match item:
@@ -83,8 +87,6 @@ func handle_hold_item(item: HELD_ITEM) -> void:
 			$%Mirror.visible = true
 		HELD_ITEM.HOT_COLD:
 			$%HotCold.visible = true
-		_:
-			$%PlaceHolder.visible = true
 
 func lose_held_item() -> void:
 	print("no longer holding item")

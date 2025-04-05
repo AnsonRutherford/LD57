@@ -15,3 +15,5 @@ func _process(delta: float) -> void:
 		print("hot cold spot found")
 		is_triggered = true
 		Globals.PUZZLE_SOLVED.emit(Globals.PUZZLE.HOT_COLD)
+		area.monitorable = false
+		area.monitoring = false
