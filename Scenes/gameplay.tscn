@@ -1,0 +1,23 @@
+[gd_scene load_steps=2 format=3 uid="uid://iblvj5it46o8"]
+
+[ext_resource type="Script" uid="uid://dwbt24gp2w1xt" path="res://Scripts/gameplay.gd" id="1_hf1ha"]
+
+[node name="Gameplay" type="Node3D"]
+script = ExtResource("1_hf1ha")
+
+[node name="UI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="UI"]
+offset_right = 211.0
+offset_bottom = 23.0
+text = "This is the gameplay wowie"
+
+[node name="Button" type="Button" parent="UI"]
+offset_top = 63.0
+offset_right = 183.0
+offset_bottom = 94.0
+text = "Go back to main menu"
