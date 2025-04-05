@@ -11,7 +11,8 @@ var mouse_sens: float = .01
 enum PUZZLE {LIGHT, HOT_COLD}
 signal PUZZLE_SOLVED(puzzle: PUZZLE)
 signal BOULDER_TRAP
-signal PILLAR_ITEM(pillar_label: String, held_item: Player.HELD_ITEM)
+signal PILLAR_INTERACT(pillar: ItemPillar)
+signal PILLAR_PICKUP(pillar: ItemPillar)
 
 func _ready() -> void:
 	print("debug mode")

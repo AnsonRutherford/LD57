@@ -15,9 +15,7 @@ ground_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
 sky_material = SubResource("ProceduralSkyMaterial_wbxth")
 
 [sub_resource type="Environment" id="Environment_kwrm5"]
-background_mode = 2
 sky = SubResource("Sky_m34ki")
-tonemap_mode = 2
 
 [node name="Gameplay" type="Node3D"]
 script = ExtResource("1_hf1ha")

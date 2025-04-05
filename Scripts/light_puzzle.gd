@@ -10,10 +10,11 @@ const solution_pillars := ["Pillar 1"]
 
 func _ready() -> void:
 	instance = self
-	Globals.PILLAR_ITEM.connect(_on_pillar_item)
+	Globals.PILLAR_PICKUP.connect(_on_pillar)
+	Globals.PILLAR_INTERACT.connect(_on_pillar)
 	
-func _on_pillar_item(pillar_label: String, held_item: Player.HELD_ITEM) -> void:
-	if pillar_label in solution_pillars:
+func _on_pillar(pillar: ItemPillar) -> void:
+	if pillar.label in solution_pillars:
 		check_solution()
 
 func check_solution() -> void:
