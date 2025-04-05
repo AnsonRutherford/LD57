@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://c2fbb4atf5n6p"]
 
-[ext_resource type="PackedScene" uid="uid://cxwdrbb3xtufd" path="res://Scenes/Interactables/Mirror Pillar.tscn" id="1_gka4x"]
+[ext_resource type="PackedScene" uid="uid://cxwdrbb3xtufd" path="res://Scenes/Interactables/item_pillar.tscn" id="1_gka4x"]
 [ext_resource type="Material" uid="uid://bh213bu1m3npl" path="res://Materials/brick.tres" id="1_m020c"]
 [ext_resource type="Script" uid="uid://e8fkydpih07x" path="res://Scripts/light_puzzle.gd" id="1_psrkm"]
 [ext_resource type="PackedScene" uid="uid://bwtwjlhrpa181" path="res://Scenes/PuzzleDoor.tscn" id="3_dnawa"]
@@ -33,8 +33,8 @@ size = Vector3(14, 6, 3)
 
 [node name="Mirror Pillar" parent="." instance=ExtResource("1_gka4x")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 1.48696, 0)
-has_mirror = true
-angles = Array[float]([0.0, 90.0, 180.0, 270.0])
+held_item = 0
+label = "Pillar 1"
 
 [node name="PuzzleDoor" parent="." instance=ExtResource("3_dnawa")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 5)
