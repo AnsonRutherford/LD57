@@ -1,0 +1,37 @@
+[gd_scene load_steps=3 format=3 uid="uid://c2fbb4atf5n6p"]
+
+[ext_resource type="Script" uid="uid://c08b6jam7ojat" path="res://Scripts/rotate_interact.gd" id="1_gka4x"]
+
+[sub_resource type="PrismMesh" id="PrismMesh_7ov3g"]
+
+[node name="PuzzleRoom" type="Node3D"]
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="."]
+operation = 2
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 2, 3.5)
+calculate_tangents = false
+flip_faces = true
+size = Vector3(9, 5, 8)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 2, 3.5)
+operation = 2
+size = Vector3(7, 3, 6)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 2, 6)
+operation = 2
+size = Vector3(14, 3, 1)
+
+[node name="Mirror" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.08228, 0.503505, 1.14518)
+mesh = SubResource("PrismMesh_7ov3g")
+script = ExtResource("1_gka4x")
+rotations = Array[Vector3]([Vector3(1, 0, 0), Vector3(0, 0, 1)])
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.613955, 0, 0.789341, 0, 1, 0, -0.789341, 0, 0.613955, -1.02579, 1.28644, 2.70753)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]

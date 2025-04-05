@@ -1,11 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://bn75iioj5qwgu"]
+[gd_scene load_steps=2 format=3 uid="uid://b52wgmrvtpdcp"]
 
-[ext_resource type="Script" uid="uid://b3t7rxsyulg03" path="res://Scripts/main_menu.gd" id="1_prhj0"]
+[ext_resource type="Script" uid="uid://b3t7rxsyulg03" path="res://Scripts/main_menu.gd" id="1_28flt"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
 anchors_preset = 0
-script = ExtResource("1_prhj0")
+script = ExtResource("1_28flt")
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 0
