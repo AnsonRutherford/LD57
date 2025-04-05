@@ -21,6 +21,8 @@ transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 
 target_position = Vector3(0, -3, 0)
 collision_mask = 2
 
+[node name="HeldItems" type="Node3D" parent="Camera3D"]
+
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
 
 [node name="Visual" type="MeshInstance3D" parent="."]

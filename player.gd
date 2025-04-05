@@ -1,8 +1,11 @@
-extends CharacterBody3D
+class_name Player extends CharacterBody3D
 
+enum HELD_ITEM {MIRROR, NONE}
 
 const SPEED = 5.0
 const JUMP_VELOCITY = 4.5
+
+var held_item: HELD_ITEM = HELD_ITEM.NONE
 
 @onready var camera: Camera3D = $Camera3D
 @onready var interact_cast: RayCast3D = $Camera3D/InteractRaycast
@@ -19,6 +22,12 @@ func _physics_process(delta: float) -> void:
 	# Handle jump.
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
+	
+	if Input.is_action_just_pressed("ui_right"):
+		handle_hold_item(HELD_ITEM.MIRROR)
+	
+	if Input.is_action_just_pressed("ui_down"):
+		lose_held_item()
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
@@ -47,7 +56,15 @@ func _physics_process(delta: float) -> void:
 		# currently this requires the parent to have the interactable script
 		var parent: Node = collide_with.get_parent()
 		if parent.has_method("pickup"):
-			parent.pickup()
+			parent.pickup(self)
+
+func handle_hold_item(item: HELD_ITEM) -> void:
+	print("holding ", item)
+	held_item = item
+
+func lose_held_item() -> void:
+	print("no longer holding item")
+	held_item = HELD_ITEM.NONE
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
