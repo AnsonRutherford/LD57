@@ -2,11 +2,12 @@ extends Node
 
 var active_scene: Node = null
 
-var main_menu_scene: PackedScene = preload("res://Scenes/main menu.tscn")
+var main_menu_scene: PackedScene = preload("res://Scenes/main_menu.tscn")
 var gameplay_scene: PackedScene = preload("res://Scenes/gameplay.tscn")
 
 func _ready() -> void:
-	load_main_menu()
+	print("debug mode")
+	# load_main_menu()
 	
 func load_main_menu() -> void:
 	_load_scene(main_menu_scene)

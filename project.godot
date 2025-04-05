@@ -19,6 +19,10 @@ config/icon="res://icon.svg"
 
 Globals="*res://Scripts/globals.gd"
 
+[global_group]
+
+Interactable="Things the player can interact with"
+
 [rendering]
 
 renderer/rendering_method="gl_compatibility"

@@ -12,11 +12,13 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="Label" type="Label" parent="UI"]
+layout_mode = 0
 offset_right = 211.0
 offset_bottom = 23.0
 text = "This is the gameplay wowie"
 
 [node name="Button" type="Button" parent="UI"]
+layout_mode = 0
 offset_top = 63.0
 offset_right = 183.0
 offset_bottom = 94.0
