@@ -36,9 +36,6 @@ func change_item(item: Player.HELD_ITEM) -> void:
 		create_tween().tween_property(items[held_item], "rotation", rotation, 0)
 
 func interact() -> void:
-	if held_item == Player.HELD_ITEM.NONE:
-		return
-	
 	if held_item == Player.HELD_ITEM.MIRROR:
 		var current_angle = angles[rotate_state]
 		rotate_state = (rotate_state + 1) % len(angles)
@@ -51,12 +48,11 @@ func interact() -> void:
 		tween.tween_property(items[held_item], "rotation", rotation, rotation_duration)
 		rotation = Vector3(0, angles[rotate_state], 0)
 		tween.tween_property(items[held_item], "rotation", rotation, 0)
-		
-		LightPuzzle.check_solution()
+	
+	Globals.PILLAR_INTERACT.emit(self)
 	
 func pickup(player: Player) -> void:
 	var my_item := held_item
 	change_item(player.held_item)
 	player.handle_hold_item(my_item)
-	if held_item == Player.HELD_ITEM.MIRROR:
-		LightPuzzle.check_solution()
+	Globals.PILLAR_PICKUP.emit(self)
