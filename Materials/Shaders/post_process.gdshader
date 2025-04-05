@@ -9,5 +9,6 @@ void vertex() {
 }
 
 void fragment() {
-	ALBEDO.rgb = vec3(texture(screen_texture, SCREEN_UV).rgb);
+	vec2 screen_chunk = round(SCREEN_UV * 256.0)/256.0;
+	ALBEDO.rgb = vec3(texture(screen_texture, screen_chunk).rgb);
 }

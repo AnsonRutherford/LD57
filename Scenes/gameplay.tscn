@@ -1,6 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://iblvj5it46o8"]
+[gd_scene load_steps=9 format=3 uid="uid://iblvj5it46o8"]
 
 [ext_resource type="Script" uid="uid://dwbt24gp2w1xt" path="res://Scripts/gameplay.gd" id="1_hf1ha"]
+[ext_resource type="PackedScene" uid="uid://p33wb31v71yi" path="res://Scenes/post_processing.tscn" id="2_r8bcl"]
 [ext_resource type="PackedScene" uid="uid://c2fbb4atf5n6p" path="res://Scenes/puzzle_room.tscn" id="3_kwrm5"]
 [ext_resource type="PackedScene" uid="uid://p6topo8tswhw" path="res://Player.tscn" id="3_m34ki"]
 [ext_resource type="PackedScene" uid="uid://bwtwjlhrpa181" path="res://Scenes/PuzzleDoor.tscn" id="4_kwrm5"]
@@ -19,6 +20,8 @@ tonemap_mode = 2
 
 [node name="Gameplay" type="Node3D"]
 script = ExtResource("1_hf1ha")
+
+[node name="Post Processing" parent="." instance=ExtResource("2_r8bcl")]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_kwrm5")

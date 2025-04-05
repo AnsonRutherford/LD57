@@ -15,4 +15,4 @@ static func register_pillar(pillar: MirrorPillar) -> void:
 static func check_solution() -> void:
 	var pillar1 = pillars[MirrorPillar.PILLAR_INDEX.PILLAR1]
 	if pillar1.has_mirror and pillar1.rotate_state == 3:
-		Globals.PUZZLE_SOLVED.emit(Globals.PUZZLE.LIGHT) 
+		Globals.PUZZLE_SOLVED.emit(Globals.PUZZLE.LIGHT)
