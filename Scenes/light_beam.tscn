@@ -7,15 +7,16 @@ height = 1.0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cmvo6"]
 transparency = 1
-shading_mode = 0
 disable_ambient_light = true
 disable_fog = true
 albedo_color = Color(0.811765, 1, 1, 0.666667)
+emission_enabled = true
+emission = Color(0.811765, 1, 1, 1)
+emission_energy_multiplier = 16.0
 
 [node name="LightBeam" type="Node3D"]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, -0.5)
-extra_cull_margin = 16384.0
 mesh = SubResource("CylinderMesh_hpvr1")
 surface_material_override/0 = SubResource("StandardMaterial3D_cmvo6")

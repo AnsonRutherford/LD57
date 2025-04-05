@@ -1,6 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://ck4e4x8jxx4k5"]
+[gd_scene load_steps=5 format=3 uid="uid://dp4l7urfp78i1"]
 
-[ext_resource type="Script" uid="uid://lkphacwix7tc" path="res://Scripts/boulder_trap.gd" id="1_s7ii6"]
+[ext_resource type="Script" path="res://Scripts/boulder_trap.gd" id="1_s7ii6"]
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_s7ii6"]
 
