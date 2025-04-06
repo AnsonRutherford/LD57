@@ -58,4 +58,4 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 145.26
 [node name="Post Processing" parent="." instance=ExtResource("2_r8bcl")]
 
 [node name="HotColdPuzzle2" parent="." instance=ExtResource("7_1qnfl")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -15.3503, -3.82068, 27.3587)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -10.0996, -1.87208, 12.7302)

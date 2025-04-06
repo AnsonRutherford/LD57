@@ -29,8 +29,10 @@ func set_height(new_height_idx) -> void:
 func _handle_pillar(touched_pillar: ItemPillar) -> void:
 	if touched_pillar.name != pillar:
 		return
-	print("pillar has: ", touched_pillar.held_item)
-	if current_height_idx == 2:
-		set_height(0)
-	else:
-		set_height(current_height_idx+1)
+	match touched_pillar.held_item:
+		Player.HELD_ITEM.BLUE_GEM:
+			set_height(0)
+		Player.HELD_ITEM.GREEN_GEM:
+			set_height(1)
+		Player.HELD_ITEM.RED_GEM:
+			set_height(2)
