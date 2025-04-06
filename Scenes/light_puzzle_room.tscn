@@ -61,6 +61,16 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, -14, -18)
 operation = 2
 size = Vector3(3, 29, 3)
 
+[node name="CSGBox3D10" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 3.5, 4.5)
+operation = 2
+size = Vector3(5, 6, 4)
+
+[node name="CSGBox3D11" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 3, 3)
+operation = 2
+size = Vector3(3, 3, 5)
+
 [node name="Light Pillar A" parent="." instance=ExtResource("1_gka4x")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 1.5, -3)
 held_item = 0
@@ -80,10 +90,13 @@ default_rotate_state = 1
 
 [node name="Light Pillar E" parent="." instance=ExtResource("1_gka4x")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 1.5, 5)
-held_item = 0
 
 [node name="PuzzleDoor" parent="." instance=ExtResource("3_dnawa")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -12, 4, -11)
+
+[node name="PuzzleDoor2" parent="." instance=ExtResource("3_dnawa")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 9, 4, 2.38462)
+puzzle = 2
 
 [node name="Light Source" type="Sprite3D" parent="."]
 transform = Transform3D(-2, 0, -3.01992e-07, 0, 2, 0, 3.01992e-07, 0, -2, -15, 3, -10.49)
