@@ -1,6 +1,6 @@
 class_name Player extends CharacterBody3D
 
-enum HELD_ITEM {MIRROR, NONE, BOULDER_LOOT, HOT_COLD}
+enum HELD_ITEM {MIRROR, NONE, BOULDER_LOOT, HOT_COLD, BLUE_GEM, RED_GEM, GREEN_GEM}
 
 const SPEED = 5.0
 const JUMP_VELOCITY = 4.5
@@ -88,6 +88,12 @@ func handle_hold_item(item: HELD_ITEM) -> void:
 			$%Mirror.visible = true
 		HELD_ITEM.HOT_COLD:
 			$%HotCold.visible = true
+		HELD_ITEM.GREEN_GEM:
+			$%GreenGem.visible = true
+		HELD_ITEM.BLUE_GEM:
+			$%BlueGem.visible = true
+		HELD_ITEM.RED_GEM:
+			$%RedGem.visible = true
 
 func lose_held_item() -> void:
 	print("no longer holding item")

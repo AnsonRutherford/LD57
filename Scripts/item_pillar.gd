@@ -10,7 +10,10 @@ static var registry: Dictionary[String, ItemPillar] = {}
 @onready var items: Dictionary[Player.HELD_ITEM, Node3D] = {
 	Player.HELD_ITEM.MIRROR: $Mirror,
 	Player.HELD_ITEM.BOULDER_LOOT: $"Boulder Loot",
-	Player.HELD_ITEM.HOT_COLD: $HotCold
+	Player.HELD_ITEM.HOT_COLD: $HotCold,
+	Player.HELD_ITEM.GREEN_GEM: $GreenGem,
+	Player.HELD_ITEM.RED_GEM: $RedGem,
+	Player.HELD_ITEM.BLUE_GEM: $BlueGem
 }
 
 # Rotation

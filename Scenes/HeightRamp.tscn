@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://c2o1myo8kq4d0"]
+
+[ext_resource type="Script" uid="uid://booxhaxogt8p4" path="res://Scripts/height_ramp.gd" id="1_h4hnl"]
+[ext_resource type="PackedScene" uid="uid://b30xom0qu4pdl" path="res://models/moving-ramp.glb" id="1_ysgqe"]
+
+[node name="HeightRamp" type="Node3D"]
+script = ExtResource("1_h4hnl")
+
+[node name="moving-ramp" parent="." instance=ExtResource("1_ysgqe")]
+
+[editable path="moving-ramp"]

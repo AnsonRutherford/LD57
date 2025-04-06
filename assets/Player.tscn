@@ -1,7 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://p6topo8tswhw"]
+[gd_scene load_steps=13 format=3 uid="uid://p6topo8tswhw"]
 
-[ext_resource type="Script" uid="uid://c8ycnna57ggbv" path="res://player.gd" id="1_xhfnw"]
-[ext_resource type="ArrayMesh" uid="uid://bsrdgmt2fu12q" path="res://assets/mirror.res" id="2_kpjcp"]
+[ext_resource type="Script" uid="uid://c8ycnna57ggbv" path="res://player.gd" id="1_3vv5g"]
+[ext_resource type="ArrayMesh" uid="uid://bsrdgmt2fu12q" path="res://assets/mirror.res" id="2_3s7hn"]
+[ext_resource type="ArrayMesh" uid="uid://bg0mfdlq2cq8c" path="res://assets/ramp-gem-green_Cylinder.res" id="3_h0t6j"]
+[ext_resource type="ArrayMesh" uid="uid://g8tn2n1q21rh" path="res://assets/ramp-gem-red_Cylinder.res" id="4_ko4v8"]
+[ext_resource type="ArrayMesh" uid="uid://bf41p27w502pv" path="res://assets/ramp-gem-blue_Cylinder.res" id="5_8yuhy"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_xhfnw"]
 radius = 0.4
@@ -28,7 +31,7 @@ size = Vector3(50, 50, 50)
 
 [node name="CharacterBody3D" type="CharacterBody3D"]
 collision_layer = 4
-script = ExtResource("1_xhfnw")
+script = ExtResource("1_3vv5g")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_xhfnw")
@@ -55,7 +58,22 @@ mesh = SubResource("TextMesh_xhfnw")
 [node name="Mirror" type="MeshInstance3D" parent="Camera3D/HeldItems"]
 unique_name_in_owner = true
 transform = Transform3D(0.105655, 0, 0.226577, -0.0393447, 0.246202, 0.0183467, -0.223135, -0.043412, 0.104049, 0, 0, 0)
-mesh = ExtResource("2_kpjcp")
+mesh = ExtResource("2_3s7hn")
+
+[node name="GreenGem" type="MeshInstance3D" parent="Camera3D/HeldItems"]
+unique_name_in_owner = true
+transform = Transform3D(-0.642788, 0, -0.766044, 0, 1, 0, 0.766044, 0, -0.642788, 0, 0, -0.14072)
+mesh = ExtResource("3_h0t6j")
+
+[node name="RedGem" type="MeshInstance3D" parent="Camera3D/HeldItems"]
+unique_name_in_owner = true
+transform = Transform3D(-0.642788, -0.766044, 3.34849e-08, 4.98603e-16, -4.37114e-08, -1, 0.766044, -0.642788, 2.80971e-08, 0, 0, -0.14072)
+mesh = ExtResource("4_ko4v8")
+
+[node name="BlueGem" type="MeshInstance3D" parent="Camera3D/HeldItems"]
+unique_name_in_owner = true
+transform = Transform3D(-0.642788, 0, -0.766044, 0, 1, 0, 0.766044, 0, -0.642788, 0, 0, -0.14072)
+mesh = ExtResource("5_8yuhy")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
 
