@@ -28,9 +28,11 @@ func _ready() -> void:
 	load_main_menu()
 	
 func load_main_menu() -> void:
+	post_processing.disable_depth_fade()
 	_load_scene(main_menu_scene)
 	
 func load_gameplay() -> void:
+	post_processing.enable_depth_fade()
 	_load_scene(gameplay_scene)
 
 func _load_scene(scene: PackedScene) -> void:

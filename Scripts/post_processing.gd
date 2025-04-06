@@ -15,3 +15,8 @@ func reset() -> void:
 	depth_max = 1.0
 	mat.set_shader_parameter("depth_max", 1.0)
 	
+func enable_depth_fade() -> void:
+	visible = true
+
+func disable_depth_fade() -> void:
+	visible = false
