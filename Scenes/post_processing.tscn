@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://p33wb31v71yi"]
+[gd_scene load_steps=4 format=3 uid="uid://p33wb31v71yi"]
 
 [ext_resource type="Material" uid="uid://bdppksj2ibrl0" path="res://Materials/post_process_material.tres" id="1_k60d0"]
+[ext_resource type="Script" uid="uid://crobdc5d1gblu" path="res://Scripts/post_processing.gd" id="2_td5vr"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_td5vr"]
 flip_faces = true
@@ -8,7 +9,8 @@ size = Vector2(2, 2)
 
 [node name="Post Processing" type="Node3D"]
 
-[node name="Red Only" type="MeshInstance3D" parent="."]
+[node name="Pixels" type="MeshInstance3D" parent="."]
 extra_cull_margin = 16384.0
 mesh = SubResource("QuadMesh_td5vr")
 surface_material_override/0 = ExtResource("1_k60d0")
+script = ExtResource("2_td5vr")

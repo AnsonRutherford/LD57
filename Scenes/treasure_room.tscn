@@ -1,0 +1,66 @@
+[gd_scene load_steps=5 format=3 uid="uid://8c2ev7rtlxee"]
+
+[ext_resource type="Material" uid="uid://bh213bu1m3npl" path="res://Materials/brick.tres" id="1_nhyoi"]
+[ext_resource type="Script" uid="uid://cntn6xl1cwff" path="res://Scripts/portal.gd" id="2_e3umy"]
+[ext_resource type="Script" uid="uid://6yf2x3v3ivdm" path="res://Scripts/cheat_spot.gd" id="3_cuqsb"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_cuqsb"]
+size = Vector3(5, 5, 5)
+
+[node name="Treasure Room" type="Node3D"]
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="."]
+material_override = ExtResource("1_nhyoi")
+operation = 2
+use_collision = true
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, -24.5, -7)
+calculate_tangents = false
+flip_faces = true
+size = Vector3(71, 106, 29)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13, 5.5, -6)
+operation = 2
+size = Vector3(25, 10, 17)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 3.5, -6)
+operation = 2
+size = Vector3(63, 6, 3)
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 19, -6)
+operation = 2
+size = Vector3(3, 19, 3)
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.0455, 5.03675, -6.0635)
+operation = 2
+size = Vector3(5, 9, 5)
+
+[node name="CSGBox3D8" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -44.9545, 3.53675, -6.0635)
+operation = 2
+size = Vector3(5, 6, 5)
+
+[node name="CSGBox3D9" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -45, -38, -6)
+operation = 2
+size = Vector3(3, 79, 3)
+
+[node name="Portal" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -45, -5, -6)
+collision_layer = 0
+collision_mask = 4
+script = ExtResource("2_e3umy")
+teleport_destination = Vector3(20, 25, -6)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Portal"]
+shape = SubResource("BoxShape3D_cuqsb")
+
+[node name="Level5Skip" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 4, -6)
+script = ExtResource("3_cuqsb")
+action = "Level5Skip"
