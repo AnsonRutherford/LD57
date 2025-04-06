@@ -6,6 +6,6 @@
 render_priority = -1
 shader = ExtResource("1_ka2em")
 shader_parameter/pixel_scale = 256.0
-shader_parameter/depth_scale = 400.38
+shader_parameter/depth_scale = 100.0
 shader_parameter/depth_min = 0.1
 shader_parameter/depth_max = 1.0

@@ -16,5 +16,5 @@ void fragment() {
 	vec2 screen_chunk = round(SCREEN_UV * pixel_scale) / pixel_scale;
 	float depth = texture(depth_texture, screen_chunk).r;
 	ALBEDO.rgb = vec3(texture(screen_texture, screen_chunk).rgb);
-	ALBEDO.rgb *= max(depth_min, min(depth_max, depth * depth_scale));
+	ALBEDO.rgb *= min(depth_max, max(depth_min, depth * depth_scale));
 }
