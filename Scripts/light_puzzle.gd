@@ -1,7 +1,6 @@
 class_name LightPuzzle
 extends Node
 
-@export var solution: Array[int]
 var pillar_a: ItemPillar = null
 var pillar_b: ItemPillar = null
 var pillar_c: ItemPillar = null
@@ -137,7 +136,7 @@ func light_moon_pillar() -> bool:
 	if pillar_e.rotate_state == 1: # NW - Moon Mural
 		pillar_e.light_beam.rotation = Vector3(0, -PI/2, -PI/2)
 		pillar_e.light_beam.scale.z = MP_TO_NORTH_WALL
-		Globals.PUZZLE_SOLVED.emit(Globals.PUZZLE.LIGHT)
+		Globals.PUZZLE_SOLVED.emit(Globals.PUZZLE.MOON_LIGHT)
 	if pillar_e.rotate_state == 2: # SW
 		pillar_e.light_beam.rotation = Vector3(-PI/2, -PI, 0)
 		pillar_e.light_beam.scale.z = MP_TO_SOUTH_WALL

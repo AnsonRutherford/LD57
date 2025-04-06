@@ -54,4 +54,4 @@ transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 33.400
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -29.36, -52, 8.918)
 
 [node name="DartPuzzle" parent="." instance=ExtResource("6_urrcd")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -39, -94, 61)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -38.924, -93.989, 60.83)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://kuxsieegr2lq"]
+[gd_scene load_steps=11 format=3 uid="uid://kuxsieegr2lq"]
 
 [ext_resource type="Material" uid="uid://bh213bu1m3npl" path="res://Materials/brick.tres" id="1_phgxn"]
 [ext_resource type="PackedScene" uid="uid://bwtwjlhrpa181" path="res://Scenes/PuzzleDoor.tscn" id="3_q0ntu"]
@@ -6,6 +6,10 @@
 [ext_resource type="PackedScene" uid="uid://catipv0japc8o" path="res://Scenes/PuzzleLight.tscn" id="5_5imf0"]
 [ext_resource type="PackedScene" uid="uid://c2o1myo8kq4d0" path="res://Scenes/HeightRamp.tscn" id="5_phgxn"]
 [ext_resource type="PackedScene" uid="uid://co3bvm6c52lky" path="res://models/ramp-top.glb" id="6_2y7eg"]
+[ext_resource type="Texture2D" uid="uid://brahchytmjufc" path="res://icon.svg" id="7_5imf0"]
+[ext_resource type="Script" uid="uid://bkdn2jtr0a8ny" path="res://Scripts/light_puzzle_jr.gd" id="8_wl1lg"]
+[ext_resource type="PackedScene" uid="uid://d25mnqq71uc2" path="res://Scenes/light_beam.tscn" id="9_3yc10"]
+[ext_resource type="Script" uid="uid://6yf2x3v3ivdm" path="res://Scripts/cheat_spot.gd" id="10_wl1lg"]
 
 [node name="HotColdPuzzle" type="Node3D"]
 
@@ -15,29 +19,49 @@ operation = 2
 use_collision = true
 
 [node name="CSGBox3D" type="CSGBox3D" parent="CSGCombiner3D"]
-transform = Transform3D(1.21886, 0, 0, 0, 2.43161, 0, 0, 0, 0.750281, -13, 5.5, 7.75342)
+transform = Transform3D(1.21886, 0, 0, 0, 2.43161, 0, 0, 0, 0.750281, -12, -3, 8)
 calculate_tangents = false
 flip_faces = true
-size = Vector3(27, 12, 29)
+size = Vector3(54, 23, 29)
 
 [node name="CSGBox3D2" type="CSGBox3D" parent="CSGCombiner3D"]
-transform = Transform3D(1.21886, 0, 0, 0, 1.7, 0, 0, 0, 0.761205, -13, 9, 8.03271)
+transform = Transform3D(1.21886, 0, 0, 0, 1.7, 0, 0, 0, 0.761205, -13, 9, 8)
 operation = 2
 size = Vector3(25, 10, 27)
 
 [node name="CSGBox3D3" type="CSGBox3D" parent="CSGCombiner3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.00519, 3.5, 15.7541)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 3.5, 15)
 operation = 2
 size = Vector3(14, 6, 3)
 
 [node name="CSGBox3D4" type="CSGBox3D" parent="CSGCombiner3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33.5968, 3.5, 15.7541)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -34, 3.5, 16)
 operation = 2
 size = Vector3(14, 6, 3)
 
+[node name="CSGBox3D5" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -40, 3.5, 16)
+operation = 2
+size = Vector3(5, 6, 5)
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -40, -15.5, 16)
+operation = 2
+size = Vector3(3, 34, 3)
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16, 3.5, 15)
+operation = 2
+size = Vector3(5, 6, 5)
+
+[node name="CSGBox3D8" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.9847, 15, 15.1011)
+operation = 2
+size = Vector3(3, 21, 3)
+
 [node name="PuzzleDoor" parent="." instance=ExtResource("3_q0ntu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.9356, 4, 15.8434)
-puzzle = 1
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29, 4, 16)
+puzzle = 3
 
 [node name="Item Pillar" parent="." instance=ExtResource("4_71k7q")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.12236, 1.5, 13.2899)
@@ -45,34 +69,59 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.12236, 1.5, 13.2899)
 [node name="Item Pillar2" parent="." instance=ExtResource("4_71k7q")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.9033, 1.5, 13.2221)
 
+[node name="Ramp Light Pillar" parent="." instance=ExtResource("4_71k7q")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 7.5, 2)
+held_item = 0
+default_rotate_state = 3
+
 [node name="PuzzleLight" parent="." instance=ExtResource("5_5imf0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -41.2594, 7.8671, 17.2737)
 
 [node name="RampPillar1" parent="." instance=ExtResource("4_71k7q")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.2895, 1.5, 7.6743)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16, 1.5, 7)
 held_item = 4
 
 [node name="RampPillar2" parent="." instance=ExtResource("4_71k7q")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.6105, 1.5, 7.6743)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 1.5, 7)
 held_item = 5
 
 [node name="RampPillar3" parent="." instance=ExtResource("4_71k7q")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.9185, 1.5, 7.6743)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 1.5, 7)
 held_item = 6
 
 [node name="HeightRamp" parent="." instance=ExtResource("5_phgxn")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -15.706, 1.45, -0.946999)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -16.3895, 1.45, -1.00051)
 pillar = "RampPillar1"
 
 [node name="HeightRamp2" parent="." instance=ExtResource("5_phgxn")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -11.6062, 1.45, -0.9467)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -12.3026, 1.45, -1)
 starting_offset = 2
 pillar = "RampPillar2"
 
 [node name="HeightRamp3" parent="." instance=ExtResource("5_phgxn")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -7.506, 1.45, -0.946999)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -8.23699, 1.45, -1)
 starting_offset = 1
 pillar = "RampPillar3"
 
 [node name="ramp-top" parent="." instance=ExtResource("6_2y7eg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.2577, 1.5, -0.578803)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 1.5, -0.5)
+
+[node name="Light Source" type="Sprite3D" parent="."]
+transform = Transform3D(-2.98023e-07, 0, 2, 0, 2, 0, -2, 0, -2.98023e-07, 2.2, 9, 2)
+texture = ExtResource("7_5imf0")
+
+[node name="Light Puzzle" type="Node3D" parent="Light Source"]
+transform = Transform3D(0.5, 0, -3.17865e-08, 0, 0.5, 0, 3.17865e-08, 0, 0.5, 0, 0, 0)
+script = ExtResource("8_wl1lg")
+
+[node name="LightBeam" parent="Light Source/Light Puzzle" instance=ExtResource("9_3yc10")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.1, 0, 0, 0)
+
+[node name="Planet Mural" type="Sprite3D" parent="."]
+transform = Transform3D(2, 0, 2.106e-07, 0, 2, 0, -2.106e-07, 0, 2, -20, 9, -2.275)
+texture = ExtResource("7_5imf0")
+
+[node name="Shortcut" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 4.14211, 11)
+script = ExtResource("10_wl1lg")
+action = "Level4Skip"
