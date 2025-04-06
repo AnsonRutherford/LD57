@@ -2,11 +2,11 @@
 
 [ext_resource type="Script" uid="uid://c8ycnna57ggbv" path="res://player.gd" id="1_3vv5g"]
 [ext_resource type="ArrayMesh" uid="uid://bsrdgmt2fu12q" path="res://assets/mirror.res" id="2_3s7hn"]
-[ext_resource type="ArrayMesh" uid="uid://bdtl5fwgrbunr" path="res://assets/hot-cold_Icosphere_001.res" id="2_h0t6j"]
+[ext_resource type="ArrayMesh" uid="uid://bbk5hhrfnfldo" path="res://assets/hot-cold_Icosphere_001.res" id="2_h0t6j"]
 [ext_resource type="ArrayMesh" uid="uid://bg0mfdlq2cq8c" path="res://assets/ramp-gem-green_Cylinder.res" id="3_h0t6j"]
 [ext_resource type="ArrayMesh" uid="uid://g8tn2n1q21rh" path="res://assets/ramp-gem-red_Cylinder.res" id="4_ko4v8"]
 [ext_resource type="ArrayMesh" uid="uid://bf41p27w502pv" path="res://assets/ramp-gem-blue_Cylinder.res" id="5_8yuhy"]
-[ext_resource type="ArrayMesh" uid="uid://dh82cvddwy7v2" path="res://assets/dart_Cylinder_001.res" id="7_h0t6j"]
+[ext_resource type="ArrayMesh" uid="uid://2q50nd4meq08" path="res://assets/dart_Cylinder_001.res" id="7_h0t6j"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_xhfnw"]
 radius = 0.4

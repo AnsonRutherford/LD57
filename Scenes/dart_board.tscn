@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://depyfmd5t3sgb"]
 
-[ext_resource type="Texture2D" uid="uid://brahchytmjufc" path="res://icon.svg" id="1_1gutt"]
 [ext_resource type="Script" uid="uid://cwga3xhfse0xk" path="res://Scenes/dart_board.gd" id="1_gfjp1"]
+[ext_resource type="Texture2D" uid="uid://bgp08yov3s0fo" path="res://Materials/dartboard-visual.png" id="2_gfjp1"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_1gutt"]
 size = Vector3(1, 1, 0.185)
@@ -10,7 +10,8 @@ size = Vector3(1, 1, 0.185)
 script = ExtResource("1_gfjp1")
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
-texture = ExtResource("1_1gutt")
+pixel_size = 0.015
+texture = ExtResource("2_gfjp1")
 
 [node name="Area3D" type="Area3D" parent="."]
 collision_layer = 16

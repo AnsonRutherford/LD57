@@ -16,4 +16,4 @@ func hit():
 		return
 	print("dartboard is hit")
 	is_hit = true
-	$Sprite3D.modulate = Color("red")
+	$Sprite3D.modulate = Color(1, 1, 1, 0.3)

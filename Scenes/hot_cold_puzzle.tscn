@@ -54,7 +54,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -42.5356, 4, 17.5434)
 puzzle = 1
 
 [node name="Item Pillar" parent="." instance=ExtResource("4_n7p4q")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.6706, 1.5, 14.4877)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.3294, 1.5, 5.4877)
 held_item = 3
 
 [node name="Item Pillar2" parent="." instance=ExtResource("4_n7p4q")]
@@ -65,6 +65,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -41.2594, 7.8671, 17.2737)
 script = null
 
 [node name="HotColdSpot" parent="." instance=ExtResource("2_ejl4w")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.5459, 0.499999, -21.613)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.4541, 0.499999, -26.613)
 
 [editable path="HotColdSpot"]
