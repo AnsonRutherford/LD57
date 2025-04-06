@@ -22,6 +22,7 @@ shape = SubResource("ConcavePolygonShape3D_w6vtc")
 
 [node name="Boulder" parent="." instance=ExtResource("1_02360")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.37085, 7.22168, -0.0210917)
+script = null
 
 [node name="BoulderTrap" parent="." instance=ExtResource("2_70ftb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.15288, 2.041, 0.0189633)

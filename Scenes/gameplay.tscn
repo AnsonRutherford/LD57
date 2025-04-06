@@ -1,12 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://iblvj5it46o8"]
+[gd_scene load_steps=9 format=3 uid="uid://iblvj5it46o8"]
 
 [ext_resource type="Script" uid="uid://dwbt24gp2w1xt" path="res://Scripts/gameplay.gd" id="1_hf1ha"]
-[ext_resource type="PackedScene" uid="uid://p33wb31v71yi" path="res://Scenes/post_processing.tscn" id="2_r8bcl"]
 [ext_resource type="PackedScene" uid="uid://c2fbb4atf5n6p" path="res://Scenes/light_puzzle_room.tscn" id="3_kwrm5"]
 [ext_resource type="PackedScene" uid="uid://p6topo8tswhw" path="res://assets/Player.tscn" id="3_m34ki"]
 [ext_resource type="PackedScene" uid="uid://dqq2ikm3mcnhx" path="res://Scenes/hot_cold_puzzle.tscn" id="6_1qnfl"]
 [ext_resource type="PackedScene" uid="uid://bkrxl2jbxg622" path="res://Scenes/BoulderRoom.tscn" id="6_rlidi"]
-[ext_resource type="PackedScene" uid="uid://kuxsieegr2lq" path="res://Scenes/ramp_puzzle.tscn" id="7_1qnfl"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_wbxth"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
@@ -47,15 +45,9 @@ text = "Go back to main menu"
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.76888, 3.44709, 0)
 
 [node name="BoulderRoom" parent="." instance=ExtResource("6_rlidi")]
-transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 14.7353, 0, 2.04629)
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 33.4008, 0, 2.04629)
 
 [node name="PuzzleRoom" parent="." instance=ExtResource("3_kwrm5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.234348, -1.35514, 0.584826)
 
 [node name="HotColdPuzzle" parent="." instance=ExtResource("6_1qnfl")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 145.262, -3.2, 25.4648)
-
-[node name="Post Processing" parent="." instance=ExtResource("2_r8bcl")]
-
-[node name="HotColdPuzzle2" parent="." instance=ExtResource("7_1qnfl")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -10.0996, -1.87208, 12.7302)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -29.36, -52, 8.918)

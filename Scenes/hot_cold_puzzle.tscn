@@ -14,10 +14,10 @@ operation = 2
 use_collision = true
 
 [node name="CSGBox3D" type="CSGBox3D" parent="CSGCombiner3D"]
-transform = Transform3D(2.27934, 0, 0, 0, 1, 0, 0, 0, 2.08399, -13, 5.5, -7)
+transform = Transform3D(2.27934, 0, 0, 0, 1, 0, 0, 0, 2.08399, -21.5286, 3.5, -7)
 calculate_tangents = false
 flip_faces = true
-size = Vector3(27, 12, 29)
+size = Vector3(46.4834, 42, 29)
 
 [node name="CSGBox3D2" type="CSGBox3D" parent="CSGCombiner3D"]
 transform = Transform3D(2.27934, 0, 0, 0, 1, 0, 0, 0, 2.08399, -13, 5.5, -7)
@@ -25,17 +25,29 @@ operation = 2
 size = Vector3(25, 10, 27)
 
 [node name="CSGBox3D3" type="CSGBox3D" parent="CSGCombiner3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.2189, 3.5, 17.3541)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.2189, 3.5, 17.3541)
 operation = 2
 size = Vector3(14, 6, 3)
 
 [node name="CSGBox3D4" type="CSGBox3D" parent="CSGCombiner3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -40.7811, 3.5, 17.3541)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -52.7655, 3.5, 17.3541)
 operation = 2
-size = Vector3(14, 6, 3)
+size = Vector3(38, 6, 3)
 
-[node name="HotColdSpot" parent="." instance=ExtResource("2_ejl4w")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.9599, 1.97759, -24)
+[node name="CSGBox3D6" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -69.2655, 3.5, 17.3541)
+operation = 2
+size = Vector3(5, 6, 5)
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -69.2655, -8, 17.3541)
+operation = 2
+size = Vector3(3, 21, 3)
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.9189, 15.6, 17.3541)
+operation = 2
+size = Vector3(3, 21, 3)
 
 [node name="PuzzleDoor" parent="." instance=ExtResource("3_okl1h")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -42.5356, 4, 17.5434)
@@ -50,3 +62,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -40.5294, 1.5, 14.4877)
 
 [node name="PuzzleLight" parent="." instance=ExtResource("5_x4ak0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -41.2594, 7.8671, 17.2737)
+script = null
+
+[node name="HotColdSpot" parent="." instance=ExtResource("2_ejl4w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.5459, 0.499999, -21.613)
+
+[editable path="HotColdSpot"]
