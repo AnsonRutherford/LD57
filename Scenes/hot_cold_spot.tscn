@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://c8crg4715tk4u"]
 
-[ext_resource type="Script" uid="uid://cppl46pd0h4w8" path="res://Scenes/hot_cold_spot.gd" id="1_mrelf"]
+[ext_resource type="Script" uid="uid://cppl46pd0h4w8" path="res://Scripts/hot_cold_spot.gd" id="1_mrelf"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_mrelf"]
 

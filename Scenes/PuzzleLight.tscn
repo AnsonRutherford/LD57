@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://catipv0japc8o"]
 
 [ext_resource type="PackedScene" uid="uid://dvfu64j7oot2l" path="res://models/torch.glb" id="1_0gj3n"]
-[ext_resource type="Script" uid="uid://cbe8c0bkjby5d" path="res://Scenes/puzzle_light.gd" id="1_yanx7"]
+[ext_resource type="Script" uid="uid://cbe8c0bkjby5d" path="res://Scripts/puzzle_light.gd" id="1_yanx7"]
 
 [node name="PuzzleLight" type="Node3D"]
 script = ExtResource("1_yanx7")
