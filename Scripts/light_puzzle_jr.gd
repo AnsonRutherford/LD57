@@ -40,7 +40,7 @@ func light_my_pillar() -> bool:
 		my_pillar.light_beam.rotation = Vector3(-PI/2, -PI, 0)
 		my_pillar.light_beam.scale.z = MP_TO_NORTH_WALL
 		Globals.PUZZLE_SOLVED.emit(Globals.PUZZLE.RAMP_LIGHT)
-	if my_pillar.rotate_state == 1: # SE
+	if my_pillar.rotate_state == 3: # SE
 		my_pillar.light_beam.rotation = Vector3(0, -PI/2, -PI/2)
 		my_pillar.light_beam.scale.z = MP_TO_SOUTH_WALL
 	return true
