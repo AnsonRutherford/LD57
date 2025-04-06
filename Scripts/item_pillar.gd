@@ -4,7 +4,6 @@ extends Node
 static var registry: Dictionary[String, ItemPillar] = {}
 
 @export var held_item: Player.HELD_ITEM = Player.HELD_ITEM.NONE
-@export var label: String
 
 @onready var light_beam := %LightBeam # Used so Light Puzzle can manipulate it
 
@@ -17,11 +16,12 @@ static var registry: Dictionary[String, ItemPillar] = {}
 # Rotation
 const rotation_duration := 0.1
 const angles = [0, PI/2, PI, 3*PI/2]
+@export var default_rotate_state: int = 0
 var rotate_state: int = 0
 
 func _ready() -> void:
 	add_to_group("Interactable")
-	registry[label] = self
+	registry[name] = self
 	change_item(held_item)
 
 func change_item(item: Player.HELD_ITEM) -> void:
@@ -31,7 +31,7 @@ func change_item(item: Player.HELD_ITEM) -> void:
 	if held_item != Player.HELD_ITEM.NONE:
 		items[held_item].visible = true
 	if held_item == Player.HELD_ITEM.MIRROR:
-		rotate_state = 0
+		rotate_state = default_rotate_state
 		var rotation = Vector3(0, angles[rotate_state], 0)
 		create_tween().tween_property(items[held_item], "rotation", rotation, 0)
 
@@ -55,4 +55,5 @@ func pickup(player: Player) -> void:
 	var my_item := held_item
 	change_item(player.held_item)
 	player.handle_hold_item(my_item)
+	rotate_state = default_rotate_state
 	Globals.PILLAR_PICKUP.emit(self)
