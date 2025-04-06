@@ -1,0 +1,35 @@
+[gd_scene load_steps=7 format=3 uid="uid://b6uwu1c84kjxf"]
+
+[ext_resource type="Script" uid="uid://cwga3xhfse0xk" path="res://Scenes/dart_board.gd" id="1_m46sq"]
+[ext_resource type="Texture2D" uid="uid://8wmmillolry4" path="res://Materials/camo-dartboard.png" id="2_m46sq"]
+[ext_resource type="Texture2D" uid="uid://bgp08yov3s0fo" path="res://Materials/dartboard-visual.png" id="2_w6tk4"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1gutt"]
+size = Vector3(0.511841, 0.5, 0.185)
+
+[sub_resource type="QuadMesh" id="QuadMesh_w6tk4"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bo1k7"]
+albedo_texture = ExtResource("2_m46sq")
+texture_filter = 0
+
+[node name="DartBoard" type="Node3D"]
+script = ExtResource("1_m46sq")
+puzzle = 6
+
+[node name="Area3D" type="Area3D" parent="."]
+collision_layer = 16
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.24408, 0.25, 0.1)
+shape = SubResource("BoxShape3D_1gutt")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("QuadMesh_w6tk4")
+surface_material_override/0 = SubResource("StandardMaterial3D_bo1k7")
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(0.78, 0, 0, 0, 0.78, 0, 0, 0, 0.78, -0.245169, 0.245628, 0)
+modulate = Color(1, 1, 1, 0)
+texture = ExtResource("2_w6tk4")
