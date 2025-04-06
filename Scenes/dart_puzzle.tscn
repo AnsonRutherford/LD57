@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://be1ony6j0aaqk"]
+[gd_scene load_steps=6 format=3 uid="uid://be1ony6j0aaqk"]
 
 [ext_resource type="Material" uid="uid://bh213bu1m3npl" path="res://Materials/brick.tres" id="1_8f8qx"]
 [ext_resource type="PackedScene" uid="uid://cxwdrbb3xtufd" path="res://Scenes/Interactables/item_pillar.tscn" id="2_dy40a"]
 [ext_resource type="PackedScene" uid="uid://depyfmd5t3sgb" path="res://Scenes/dart_board.tscn" id="3_j836n"]
 [ext_resource type="PackedScene" uid="uid://bwtwjlhrpa181" path="res://Scenes/PuzzleDoor.tscn" id="4_613ma"]
+[ext_resource type="Script" uid="uid://6yf2x3v3ivdm" path="res://Scripts/cheat_spot.gd" id="5_yoym1"]
 
 [node name="DartPuzzle" type="Node3D"]
 
@@ -73,3 +74,8 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 15.462
 [node name="PuzzleDoor" parent="." instance=ExtResource("4_613ma")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -42.1871, 4, 17.6372)
 puzzle = 4
+
+[node name="Level3Skip" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27, 21, 17.3)
+script = ExtResource("5_yoym1")
+action = "Level3Skip"

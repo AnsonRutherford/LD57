@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://p6topo8tswhw"]
+[gd_scene load_steps=16 format=3 uid="uid://p6topo8tswhw"]
 
 [ext_resource type="Script" uid="uid://c8ycnna57ggbv" path="res://player.gd" id="1_3vv5g"]
 [ext_resource type="ArrayMesh" uid="uid://bsrdgmt2fu12q" path="res://assets/mirror.res" id="2_3s7hn"]
@@ -10,6 +10,32 @@
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_xhfnw"]
 radius = 0.4
+
+[sub_resource type="Animation" id="Animation_h0t6j"]
+resource_name = "moving"
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("HeldItems")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0.336184, -0.166754, -0.576746, 0.25, 1, 0.3, -0.1, -0.577, 0.5, 1, 0.336184, -0.166754, -0.576746, 0.75, 1, 0.4, -0.1, -0.577, 1, 1, 0.336184, -0.166754, -0.576746)
+
+[sub_resource type="Animation" id="Animation_ko4v8"]
+length = 0.001
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("HeldItems")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0.336184, -0.166754, -0.576746)
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8yuhy"]
+_data = {
+&"RESET": SubResource("Animation_ko4v8"),
+&"moving": SubResource("Animation_h0t6j")
+}
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xhfnw"]
 albedo_color = Color(0, 0, 0, 1)
@@ -40,6 +66,11 @@ transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 
 target_position = Vector3(0, -3, 0)
 collision_mask = 2
 
+[node name="HeldItemAnimations" type="AnimationPlayer" parent="Camera3D"]
+libraries = {
+&"": SubResource("AnimationLibrary_8yuhy")
+}
+
 [node name="HeldItems" type="Node3D" parent="Camera3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.336184, -0.166754, -0.576746)
 
@@ -51,7 +82,6 @@ mesh = SubResource("CylinderMesh_xhfnw")
 [node name="HotCold" type="MeshInstance3D" parent="Camera3D/HeldItems"]
 unique_name_in_owner = true
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
-visible = false
 mesh = ExtResource("2_h0t6j")
 
 [node name="Mirror" type="MeshInstance3D" parent="Camera3D/HeldItems"]
@@ -81,6 +111,7 @@ mesh = ExtResource("5_8yuhy")
 [node name="Dart" type="MeshInstance3D" parent="Camera3D/HeldItems"]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 0.939693, -0.34202, 0, 0.34202, 0.939693, 0, 0.14, -0.325)
+visible = false
 mesh = ExtResource("7_h0t6j")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]

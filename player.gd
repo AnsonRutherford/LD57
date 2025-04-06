@@ -14,10 +14,14 @@ var held_item: HELD_ITEM = HELD_ITEM.NONE
 var dart_scene: PackedScene = preload("res://Scenes/throwing_dart.tscn")
 var dart_cd: float = 1.0
 
+var held_items_base_pos: Vector3
+@onready var held_items_anim_player: AnimationPlayer = $Camera3D/HeldItemAnimations
+
 func _ready() -> void:
 	Globals.player = self
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	$Visual.visible = false
+	held_items_base_pos = held_item_meshes.position
 	
 	for held_item: MeshInstance3D in $Camera3D/HeldItems.get_children():
 		held_item.visible = false
@@ -41,10 +45,10 @@ func _physics_process(delta: float) -> void:
 		velocity.y = JUMP_VELOCITY
 	
 	if Input.is_action_just_pressed("ui_right"):
-		pass
+		held_items_anim_player.play("RESET")
 	
 	if Input.is_action_just_pressed("ui_down"):
-		pass
+		held_items_anim_player.play("moving")
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
