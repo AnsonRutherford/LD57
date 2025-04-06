@@ -1,0 +1,51 @@
+[gd_scene load_steps=3 format=3 uid="uid://be1ony6j0aaqk"]
+
+[ext_resource type="Material" uid="uid://bh213bu1m3npl" path="res://Materials/brick.tres" id="1_8f8qx"]
+[ext_resource type="PackedScene" uid="uid://cxwdrbb3xtufd" path="res://Scenes/Interactables/item_pillar.tscn" id="2_dy40a"]
+
+[node name="DartPuzzle" type="Node3D"]
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="."]
+material_override = ExtResource("1_8f8qx")
+operation = 2
+use_collision = true
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(2.27934, 0, 0, 0, 1, 0, 0, 0, 2.08399, -21.5286, 3.5, -7)
+calculate_tangents = false
+flip_faces = true
+size = Vector3(46.4834, 42, 29)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(2.27934, 0, 0, 0, 1, 0, 0, 0, 2.08399, -13, 5.5, -7)
+operation = 2
+size = Vector3(25, 10, 27)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.2189, 3.5, 17.3541)
+operation = 2
+size = Vector3(14, 6, 3)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -52.7655, 3.5, 17.3541)
+operation = 2
+size = Vector3(38, 6, 3)
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -69.2655, 3.5, 17.3541)
+operation = 2
+size = Vector3(5, 6, 5)
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -69.2655, -8, 17.3541)
+operation = 2
+size = Vector3(3, 21, 3)
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.9189, 15.6, 17.3541)
+operation = 2
+size = Vector3(3, 21, 3)
+
+[node name="ItemPillar" parent="." instance=ExtResource("2_dy40a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.6089, 1.5, 14.3696)
+held_item = 7

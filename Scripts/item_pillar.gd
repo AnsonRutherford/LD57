@@ -13,7 +13,8 @@ static var registry: Dictionary[String, ItemPillar] = {}
 	Player.HELD_ITEM.HOT_COLD: $HotCold,
 	Player.HELD_ITEM.GREEN_GEM: $GreenGem,
 	Player.HELD_ITEM.RED_GEM: $RedGem,
-	Player.HELD_ITEM.BLUE_GEM: $BlueGem
+	Player.HELD_ITEM.BLUE_GEM: $BlueGem,
+	Player.HELD_ITEM.DART: $Dart
 }
 
 # Rotation

@@ -1,7 +1,8 @@
-[gd_scene load_steps=13 format=3 uid="uid://p6topo8tswhw"]
+[gd_scene load_steps=12 format=3 uid="uid://p6topo8tswhw"]
 
 [ext_resource type="Script" uid="uid://c8ycnna57ggbv" path="res://player.gd" id="1_3vv5g"]
 [ext_resource type="ArrayMesh" uid="uid://bsrdgmt2fu12q" path="res://assets/mirror.res" id="2_3s7hn"]
+[ext_resource type="ArrayMesh" uid="uid://bdtl5fwgrbunr" path="res://assets/hot-cold_Icosphere_001.res" id="2_h0t6j"]
 [ext_resource type="ArrayMesh" uid="uid://bg0mfdlq2cq8c" path="res://assets/ramp-gem-green_Cylinder.res" id="3_h0t6j"]
 [ext_resource type="ArrayMesh" uid="uid://g8tn2n1q21rh" path="res://assets/ramp-gem-red_Cylinder.res" id="4_ko4v8"]
 [ext_resource type="ArrayMesh" uid="uid://bf41p27w502pv" path="res://assets/ramp-gem-blue_Cylinder.res" id="5_8yuhy"]
@@ -17,12 +18,6 @@ material = SubResource("StandardMaterial3D_xhfnw")
 top_radius = 0.1
 bottom_radius = 0.1
 height = 0.1
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kpjcp"]
-
-[sub_resource type="TextMesh" id="TextMesh_xhfnw"]
-material = SubResource("StandardMaterial3D_kpjcp")
-text = "Hot Cold"
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_xhfnw"]
 
@@ -53,7 +48,8 @@ mesh = SubResource("CylinderMesh_xhfnw")
 
 [node name="HotCold" type="MeshInstance3D" parent="Camera3D/HeldItems"]
 unique_name_in_owner = true
-mesh = SubResource("TextMesh_xhfnw")
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+mesh = ExtResource("2_h0t6j")
 
 [node name="Mirror" type="MeshInstance3D" parent="Camera3D/HeldItems"]
 unique_name_in_owner = true

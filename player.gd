@@ -1,6 +1,6 @@
 class_name Player extends CharacterBody3D
 
-enum HELD_ITEM {MIRROR, NONE, BOULDER_LOOT, HOT_COLD, BLUE_GEM, RED_GEM, GREEN_GEM}
+enum HELD_ITEM {MIRROR, NONE, BOULDER_LOOT, HOT_COLD, BLUE_GEM, RED_GEM, GREEN_GEM, DART}
 
 const SPEED = 5.0
 const JUMP_VELOCITY = 4.5
@@ -10,6 +10,8 @@ var held_item: HELD_ITEM = HELD_ITEM.NONE
 @onready var camera: Camera3D = $Camera3D
 @onready var interact_cast: RayCast3D = $Camera3D/InteractRaycast
 @onready var held_item_meshes: Node3D = $Camera3D/HeldItems
+
+var dart_scene: PackedScene = preload("res://Scenes/throwing_dart.tscn")
 
 func _ready() -> void:
 	Globals.player = self
@@ -21,7 +23,12 @@ func _ready() -> void:
 		var new_mat: StandardMaterial3D = held_item.get_active_material(0).duplicate()
 		new_mat.no_depth_test = true
 		new_mat.render_priority = 1
-		new_mat.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
+		
+		if held_item.name != "HotCold":
+			new_mat.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
+		else:
+			print("it worked")
+		
 		held_item.material_override = new_mat
 
 func _physics_process(delta: float) -> void:
@@ -74,9 +81,17 @@ func _physics_process(delta: float) -> void:
 			var nearby_areas = $HotColdArea.get_overlapping_areas()
 			var distance = self.global_position.distance_to(nearby_areas[0].global_position) * 50
 			print("distance: ", distance)
-			mesh.material_override.albedo_color = Color(255 / distance, 0, 0)
+			mesh.material_override.albedo_color = Color(255 / distance, 0, 0, .4)
 		else:
-			mesh.material_override.albedo_color = Color(255, 255, 255)
+			mesh.material_override.albedo_color = Color(1, 1, 1, .4)
+	
+	if held_item == HELD_ITEM.DART:
+		if Input.is_action_just_pressed("interact"):
+			print("throwing dart")
+			var dart: Node3D = dart_scene.instantiate()
+			Globals.add_child(dart)
+			dart.global_position = global_position
+			dart.global_rotation = camera.global_rotation
 
 func handle_hold_item(item: HELD_ITEM) -> void:
 	print("holding ", item)

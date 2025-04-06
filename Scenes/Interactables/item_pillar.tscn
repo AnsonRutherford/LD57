@@ -4,9 +4,11 @@
 [ext_resource type="ArrayMesh" uid="uid://bsrdgmt2fu12q" path="res://assets/mirror.res" id="2_c6fn0"]
 [ext_resource type="PackedScene" uid="uid://d25mnqq71uc2" path="res://Scenes/light_beam.tscn" id="2_rvk7v"]
 [ext_resource type="PackedScene" uid="uid://dlqhot88db272" path="res://models/itempillar.glb" id="3_rvk7v"]
+[ext_resource type="ArrayMesh" uid="uid://bdtl5fwgrbunr" path="res://assets/hot-cold_Icosphere_001.res" id="4_fcq5n"]
 [ext_resource type="ArrayMesh" uid="uid://bf41p27w502pv" path="res://assets/ramp-gem-blue_Cylinder.res" id="5_j0mi4"]
 [ext_resource type="ArrayMesh" uid="uid://bg0mfdlq2cq8c" path="res://assets/ramp-gem-green_Cylinder.res" id="6_0qpj1"]
 [ext_resource type="ArrayMesh" uid="uid://g8tn2n1q21rh" path="res://assets/ramp-gem-red_Cylinder.res" id="6_ryna0"]
+[ext_resource type="ArrayMesh" uid="uid://c6mvx1av5r02q" path="res://Scenes/dart_Cylinder_001.res" id="9_nv345"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_w8duk"]
 
@@ -14,12 +16,6 @@
 height = 3.0
 
 [sub_resource type="TorusMesh" id="TorusMesh_vgr4q"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kpjcp"]
-
-[sub_resource type="TextMesh" id="TextMesh_vgr4q"]
-material = SubResource("StandardMaterial3D_kpjcp")
-text = "Hot Cold"
 
 [node name="ItemPillar" type="Node3D"]
 script = ExtResource("1_vgr4q")
@@ -58,9 +54,9 @@ skeleton = NodePath("")
 
 [node name="HotCold" type="MeshInstance3D" parent="."]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.3, 0)
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 1.2, 0)
 visible = false
-mesh = SubResource("TextMesh_vgr4q")
+mesh = ExtResource("4_fcq5n")
 skeleton = NodePath("")
 
 [node name="itempillar" parent="." instance=ExtResource("3_rvk7v")]
@@ -80,3 +76,8 @@ mesh = ExtResource("6_ryna0")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2, 0)
 visible = false
 mesh = ExtResource("6_0qpj1")
+
+[node name="Dart" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 0, 1.2, -0.1)
+visible = false
+mesh = ExtResource("9_nv345")
