@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://p6topo8tswhw"]
+[gd_scene load_steps=13 format=3 uid="uid://p6topo8tswhw"]
 
 [ext_resource type="Script" uid="uid://c8ycnna57ggbv" path="res://player.gd" id="1_3vv5g"]
 [ext_resource type="ArrayMesh" uid="uid://bsrdgmt2fu12q" path="res://assets/mirror.res" id="2_3s7hn"]
@@ -6,6 +6,7 @@
 [ext_resource type="ArrayMesh" uid="uid://bg0mfdlq2cq8c" path="res://assets/ramp-gem-green_Cylinder.res" id="3_h0t6j"]
 [ext_resource type="ArrayMesh" uid="uid://g8tn2n1q21rh" path="res://assets/ramp-gem-red_Cylinder.res" id="4_ko4v8"]
 [ext_resource type="ArrayMesh" uid="uid://bf41p27w502pv" path="res://assets/ramp-gem-blue_Cylinder.res" id="5_8yuhy"]
+[ext_resource type="ArrayMesh" uid="uid://dh82cvddwy7v2" path="res://assets/dart_Cylinder_001.res" id="7_h0t6j"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_xhfnw"]
 radius = 0.4
@@ -44,32 +45,43 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.336184, -0.166754, -0.57674
 
 [node name="PlaceHolder" type="MeshInstance3D" parent="Camera3D/HeldItems"]
 unique_name_in_owner = true
+visible = false
 mesh = SubResource("CylinderMesh_xhfnw")
 
 [node name="HotCold" type="MeshInstance3D" parent="Camera3D/HeldItems"]
 unique_name_in_owner = true
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+visible = false
 mesh = ExtResource("2_h0t6j")
 
 [node name="Mirror" type="MeshInstance3D" parent="Camera3D/HeldItems"]
 unique_name_in_owner = true
 transform = Transform3D(0.105655, 0, 0.226577, -0.0393447, 0.246202, 0.0183467, -0.223135, -0.043412, 0.104049, 0, 0, 0)
+visible = false
 mesh = ExtResource("2_3s7hn")
 
 [node name="GreenGem" type="MeshInstance3D" parent="Camera3D/HeldItems"]
 unique_name_in_owner = true
 transform = Transform3D(-0.642788, 0, -0.766044, 0, 1, 0, 0.766044, 0, -0.642788, 0, 0, -0.14072)
+visible = false
 mesh = ExtResource("3_h0t6j")
 
 [node name="RedGem" type="MeshInstance3D" parent="Camera3D/HeldItems"]
 unique_name_in_owner = true
 transform = Transform3D(-0.642788, -0.766044, 3.34849e-08, 4.98603e-16, -4.37114e-08, -1, 0.766044, -0.642788, 2.80971e-08, 0, 0, -0.14072)
+visible = false
 mesh = ExtResource("4_ko4v8")
 
 [node name="BlueGem" type="MeshInstance3D" parent="Camera3D/HeldItems"]
 unique_name_in_owner = true
 transform = Transform3D(-0.642788, 0, -0.766044, 0, 1, 0, 0.766044, 0, -0.642788, 0, 0, -0.14072)
+visible = false
 mesh = ExtResource("5_8yuhy")
+
+[node name="Dart" type="MeshInstance3D" parent="Camera3D/HeldItems"]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 0.939693, -0.34202, 0, 0.34202, 0.939693, 0, 0.14, -0.325)
+mesh = ExtResource("7_h0t6j")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
 

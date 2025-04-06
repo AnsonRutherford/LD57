@@ -12,6 +12,7 @@ var held_item: HELD_ITEM = HELD_ITEM.NONE
 @onready var held_item_meshes: Node3D = $Camera3D/HeldItems
 
 var dart_scene: PackedScene = preload("res://Scenes/throwing_dart.tscn")
+var dart_cd: float = 1.0
 
 func _ready() -> void:
 	Globals.player = self
@@ -32,6 +33,7 @@ func _ready() -> void:
 		held_item.material_override = new_mat
 
 func _physics_process(delta: float) -> void:
+	dart_cd -= delta
 	# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta
@@ -86,12 +88,17 @@ func _physics_process(delta: float) -> void:
 			mesh.material_override.albedo_color = Color(1, 1, 1, .4)
 	
 	if held_item == HELD_ITEM.DART:
-		if Input.is_action_just_pressed("interact"):
+		if Input.is_action_just_pressed("interact") && dart_cd < 0:
 			print("throwing dart")
 			var dart: Node3D = dart_scene.instantiate()
 			Globals.add_child(dart)
-			dart.global_position = global_position
+			dart.global_position = $%Dart.global_position
 			dart.global_rotation = camera.global_rotation
+			dart_cd = 1.0
+			$%Dart.visible = false
+			await get_tree().create_timer(1).timeout
+			if held_item == HELD_ITEM.DART:
+				$%Dart.visible = true
 
 func handle_hold_item(item: HELD_ITEM) -> void:
 	print("holding ", item)
@@ -109,6 +116,8 @@ func handle_hold_item(item: HELD_ITEM) -> void:
 			$%BlueGem.visible = true
 		HELD_ITEM.RED_GEM:
 			$%RedGem.visible = true
+		HELD_ITEM.DART:
+			$%Dart.visible = true
 
 func lose_held_item() -> void:
 	print("no longer holding item")

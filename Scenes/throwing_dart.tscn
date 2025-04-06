@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://ds65umq0kfrqy"]
+[gd_scene load_steps=4 format=3 uid="uid://ds65umq0kfrqy"]
 
 [ext_resource type="PackedScene" uid="uid://sdb7jakfqgyy" path="res://models/dart.glb" id="1_gbk23"]
 [ext_resource type="Script" uid="uid://rhl6d3p3o532" path="res://Scenes/throwing_dart.gd" id="1_n6y3u"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_n6y3u"]
 
 [node name="ThrowingDart" type="Node3D"]
 script = ExtResource("1_n6y3u")
@@ -10,3 +12,10 @@ script = ExtResource("1_n6y3u")
 
 [node name="Marker3D" type="Marker3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2)
+
+[node name="Area3D" type="Area3D" parent="."]
+collision_layer = 0
+collision_mask = 17
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("BoxShape3D_n6y3u")
