@@ -1,6 +1,7 @@
 extends Node3D
 
 var is_hit := false
+@export var puzzle: Globals.PUZZLE = Globals.PUZZLE.DART
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -17,3 +18,4 @@ func hit():
 	print("dartboard is hit")
 	is_hit = true
 	$Sprite3D.modulate = Color(1, 1, 1, 0.3)
+	DartHandling.DART_BOARD_HIT.emit(puzzle)

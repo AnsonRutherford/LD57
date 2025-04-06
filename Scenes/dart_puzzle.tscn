@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://be1ony6j0aaqk"]
+[gd_scene load_steps=5 format=3 uid="uid://be1ony6j0aaqk"]
 
 [ext_resource type="Material" uid="uid://bh213bu1m3npl" path="res://Materials/brick.tres" id="1_8f8qx"]
 [ext_resource type="PackedScene" uid="uid://cxwdrbb3xtufd" path="res://Scenes/Interactables/item_pillar.tscn" id="2_dy40a"]
 [ext_resource type="PackedScene" uid="uid://depyfmd5t3sgb" path="res://Scenes/dart_board.tscn" id="3_j836n"]
+[ext_resource type="PackedScene" uid="uid://bwtwjlhrpa181" path="res://Scenes/PuzzleDoor.tscn" id="4_613ma"]
 
 [node name="DartPuzzle" type="Node3D"]
 
@@ -55,10 +56,20 @@ held_item = 7
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -40.3911, 1.5, 14.3696)
 
 [node name="DartBoard" parent="." instance=ExtResource("3_j836n")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.338, 5.18537, -8.00688)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.338, 4.18537, -8.00688)
+
+[node name="DartBoard4" parent="." instance=ExtResource("3_j836n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.338, 6.18537, -8.00688)
 
 [node name="DartBoard2" parent="." instance=ExtResource("3_j836n")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.33795, 5.18537, -8.00688)
 
 [node name="DartBoard3" parent="." instance=ExtResource("3_j836n")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.338, 8.18537, -8.00688)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.338, 4.18537, -8.00688)
+
+[node name="DartBoard5" parent="." instance=ExtResource("3_j836n")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 15.462, 8.48537, 17.1931)
+
+[node name="PuzzleDoor" parent="." instance=ExtResource("4_613ma")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -42.1871, 4, 17.6372)
+puzzle = 4

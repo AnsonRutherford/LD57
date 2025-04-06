@@ -27,8 +27,6 @@ func _ready() -> void:
 		
 		if held_item.name != "HotCold":
 			new_mat.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
-		else:
-			print("it worked")
 		
 		held_item.material_override = new_mat
 
@@ -43,10 +41,10 @@ func _physics_process(delta: float) -> void:
 		velocity.y = JUMP_VELOCITY
 	
 	if Input.is_action_just_pressed("ui_right"):
-		Globals.PUZZLE_SOLVED.emit(Globals.PUZZLE.LIGHT)
+		pass
 	
 	if Input.is_action_just_pressed("ui_down"):
-		handle_hold_item(HELD_ITEM.HOT_COLD)
+		pass
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.

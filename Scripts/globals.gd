@@ -13,7 +13,7 @@ var post_processing_scene: PackedScene = preload("res://Scenes/post_processing.t
 var player: Player
 
 var mouse_sens: float = .0025
-enum PUZZLE {LIGHT, HOT_COLD, MOON_LIGHT, RAMP_LIGHT}
+enum PUZZLE {LIGHT, HOT_COLD, MOON_LIGHT, RAMP_LIGHT, DART, SECRET_DART}
 signal PUZZLE_SOLVED(puzzle: PUZZLE)
 signal BOULDER_TRAP
 signal PILLAR_INTERACT(pillar: ItemPillar)
