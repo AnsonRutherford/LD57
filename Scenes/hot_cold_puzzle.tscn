@@ -54,7 +54,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -42.5356, 4, 17.5434)
 puzzle = 1
 
 [node name="Item Pillar" parent="." instance=ExtResource("4_n7p4q")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.3294, 1.5, 5.4877)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.3294, 1.5, -1.5123)
 held_item = 3
 
 [node name="Item Pillar2" parent="." instance=ExtResource("4_n7p4q")]

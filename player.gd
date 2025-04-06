@@ -2,7 +2,7 @@ class_name Player extends CharacterBody3D
 
 enum HELD_ITEM {MIRROR, NONE, BOULDER_LOOT, HOT_COLD, BLUE_GEM, RED_GEM, GREEN_GEM, DART}
 
-const SPEED = 5.0
+const SPEED = 7.5
 const JUMP_VELOCITY = 4.5
 
 var held_item: HELD_ITEM = HELD_ITEM.NONE
@@ -52,7 +52,7 @@ func _physics_process(delta: float) -> void:
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var input_dir := Input.get_vector("left", "right", "up", "down")
 	var direction := (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
-	var speed: float = SPEED * 3 if Input.is_action_pressed("run") else SPEED
+	var speed: float = SPEED * 2 if Input.is_action_pressed("run") else SPEED
 	if direction:
 		velocity.x = direction.x * speed
 		velocity.z = direction.z * speed
