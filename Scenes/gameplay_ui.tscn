@@ -33,8 +33,7 @@ text = "TEXT"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Pause Menu" type="VBoxContainer" parent="."]
-visible = false
+[node name="Pause Menu" type="Control" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -43,7 +42,34 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Exit Button" type="Button" parent="Pause Menu"]
+custom_minimum_size = Vector2(200, 50)
 layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 6
+offset_right = 200.0
+offset_bottom = 50.0
+size_flags_horizontal = 0
+size_flags_vertical = 2
+theme_override_font_sizes/font_size = 24
 text = "Go back to main menu"
+
+[node name="NoteContainer" type="GridContainer" parent="Pause Menu"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 8.0
+offset_top = -594.0
+offset_right = -536.0
+grow_horizontal = 2
+grow_vertical = 0
+columns = 3
+
+[node name="FocusedNoteContainer" type="VBoxContainer" parent="Pause Menu"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 592.0
+offset_top = 54.0
+grow_horizontal = 2
+grow_vertical = 2

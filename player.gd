@@ -50,7 +50,7 @@ func _physics_process(delta: float) -> void:
 		velocity.y = JUMP_VELOCITY
 	
 	if Input.is_action_just_pressed("ui_right"):
-		held_items_anim_player.play("RESET")
+		pass
 	
 	if Input.is_action_just_pressed("ui_down"):
 		held_items_anim_player.play("moving")

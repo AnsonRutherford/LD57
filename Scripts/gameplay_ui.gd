@@ -1,6 +1,7 @@
 extends Control
 
 @onready var pause_menu = $"Pause Menu"
+@onready var note_container = $"Pause Menu/NoteContainer"
 @onready var exit_button = $"Pause Menu/Exit Button"
 
 @onready var dialogue = $Dialogue
@@ -27,6 +28,7 @@ func _ready() -> void:
 	Globals.CONTINUE_DIALOGUE.connect(_on_dialogue)
 	Globals.END_DIALOGUE.connect(_on_end_dialogue)
 	exit_button.pressed.connect(_on_exit_button_pressed)
+	Globals.SECRET_NOTE_ACQUIRED.connect(_on_secret_note_found)
 	
 func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("Pause"):
@@ -67,3 +69,8 @@ func _on_end_dialogue() -> void:
 	
 func _on_exit_button_pressed():
 	Globals.load_main_menu()
+
+func _on_secret_note_found():
+	print("work")
+	var note := InventoryNoteVisual.new()
+	note_container.add_child(note)

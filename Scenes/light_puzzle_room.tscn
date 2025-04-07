@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://c2fbb4atf5n6p"]
+[gd_scene load_steps=10 format=3 uid="uid://c2fbb4atf5n6p"]
 
 [ext_resource type="PackedScene" uid="uid://cxwdrbb3xtufd" path="res://Scenes/Interactables/item_pillar.tscn" id="1_gka4x"]
 [ext_resource type="Material" uid="uid://bh213bu1m3npl" path="res://Materials/brick.tres" id="1_m020c"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://brahchytmjufc" path="res://icon.svg" id="4_g1p2c"]
 [ext_resource type="Script" uid="uid://6yf2x3v3ivdm" path="res://Scripts/cheat_spot.gd" id="7_lsegc"]
 [ext_resource type="PackedScene" uid="uid://wh64rs13lu1q" path="res://Scenes/npc.tscn" id="8_5xgy1"]
+[ext_resource type="PackedScene" uid="uid://b0akjn27q6flf" path="res://Scenes/SecretNote.tscn" id="9_g8par"]
 
 [node name="PuzzleRoom" type="Node3D"]
 
@@ -126,3 +127,6 @@ action = "Level1Skip"
 [node name="NPC" parent="." instance=ExtResource("8_5xgy1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 1.5, -10)
 lines = Array[String](["I feel like something's missing......"])
+
+[node name="SecretNote" parent="." instance=ExtResource("9_g8par")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.97752, 2.06945, 2.11135)
