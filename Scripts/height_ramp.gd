@@ -7,6 +7,8 @@ const heights: Array[float] = [0, -2, -4]
 
 @export var pillar: String
 
+@onready var rumble_sound: AudioStreamPlayer3D = $AudioStreamPlayer3D
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	starting_height = global_position
@@ -25,6 +27,9 @@ func set_height(new_height_idx) -> void:
 	var height = starting_height + Vector3(0, heights[new_height_idx], 0)
 	print("new height: ", height)
 	tween.tween_property(self, "global_position", height, 3.0)
+	rumble_sound.play(16)
+	await get_tree().create_timer(3).timeout
+	rumble_sound.stop()
 
 func _handle_pillar(touched_pillar: ItemPillar) -> void:
 	if touched_pillar.name != pillar:

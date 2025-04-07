@@ -54,7 +54,7 @@ func _physics_process(delta: float) -> void:
 		velocity.y = JUMP_VELOCITY
 	
 	if Input.is_action_just_pressed("ui_right"):
-		pass
+		Globals.PUZZLE_SOLVED.emit(Globals.PUZZLE.MOON_LIGHT)
 	
 	if Input.is_action_just_pressed("ui_down"):
 		held_items_anim_player.play("moving")

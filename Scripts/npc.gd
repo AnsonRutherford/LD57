@@ -22,7 +22,7 @@ func next_line() -> void:
 		line_index += 1
 	else:
 		Globals.DIALOGUE_NEXT.disconnect(next_line)
-		Globals.call_deferred("end_dialogue")
+		Globals.end_dialogue()
 	
 func _on_curse_level_changed() -> void:
 	if Globals.curse_level == Globals.CURSE.NOT_CURSED:

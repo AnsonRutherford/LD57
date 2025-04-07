@@ -2,6 +2,7 @@ extends Control
 
 @onready var pause_menu = $"Pause Menu"
 @onready var note_container = $"Pause Menu/NoteContainer"
+@onready var focused_note_container = $"Pause Menu/FocusedNoteContainer"
 @onready var exit_button = $"Pause Menu/Exit Button"
 
 @onready var dialogue = $Dialogue
@@ -18,6 +19,7 @@ const extra_char_time = {
 var typing_tween: Tween = null
 var animating = false
 
+var hovered_note: InventoryNoteVisual
 
 func _ready() -> void:
 	pause_menu.visible = false
@@ -29,6 +31,7 @@ func _ready() -> void:
 	Globals.END_DIALOGUE.connect(_on_end_dialogue)
 	exit_button.pressed.connect(_on_exit_button_pressed)
 	Globals.SECRET_NOTE_ACQUIRED.connect(_on_secret_note_found)
+	Globals.NOTE_HOVERED.connect(_on_note_hovered)
 	
 func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("Pause"):
@@ -70,7 +73,26 @@ func _on_end_dialogue() -> void:
 func _on_exit_button_pressed():
 	Globals.load_main_menu()
 
-func _on_secret_note_found():
-	print("work")
-	var note := InventoryNoteVisual.new()
+func _on_secret_note_found(note_found: SecretNote):
+	var note: InventoryNoteVisual = preload("res://Scenes/InventoryNoteVisual.tscn").instantiate()
+	
+	if len(note_found.lines) > 0:
+		note.text = ""
+		for line in note_found.lines:
+			note.text += line + "\n"
+	
 	note_container.add_child(note)
+
+func _on_note_hovered(note: InventoryNoteVisual):
+	if note == hovered_note:
+		return
+	for child in focused_note_container.get_children():
+		child.queue_free()
+	var focused_note = preload("res://Scenes/InventoryNoteVisual.tscn").instantiate()
+	focused_note.scale = Vector2.ONE * 2
+	focused_note_container.add_child(focused_note)
+	
+	var label = Label.new()
+	label.text = note.text
+	label.autowrap_mode = TextServer.AUTOWRAP_WORD
+	focused_note_container.add_child(label)
