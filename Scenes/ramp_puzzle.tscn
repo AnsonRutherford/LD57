@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://kuxsieegr2lq"]
+[gd_scene load_steps=13 format=3 uid="uid://kuxsieegr2lq"]
 
 [ext_resource type="Material" uid="uid://bh213bu1m3npl" path="res://Materials/brick.tres" id="1_phgxn"]
 [ext_resource type="PackedScene" uid="uid://bwtwjlhrpa181" path="res://Scenes/PuzzleDoor.tscn" id="3_q0ntu"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://d25mnqq71uc2" path="res://Scenes/light_beam.tscn" id="9_3yc10"]
 [ext_resource type="Script" uid="uid://6yf2x3v3ivdm" path="res://Scripts/cheat_spot.gd" id="10_wl1lg"]
 [ext_resource type="PackedScene" uid="uid://depyfmd5t3sgb" path="res://Scenes/dart_board.tscn" id="11_3yc10"]
+[ext_resource type="PackedScene" uid="uid://b0akjn27q6flf" path="res://Scenes/SecretNote.tscn" id="12_e4nf0"]
 
 [node name="HotColdPuzzle" type="Node3D"]
 
@@ -60,9 +61,23 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.9847, 15, 15.1011)
 operation = 2
 size = Vector3(3, 21, 3)
 
+[node name="CSGBox3D10" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -27.55, 3.5, 8.75)
+operation = 2
+size = Vector3(5, 6, 4)
+
+[node name="CSGBox3D11" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -29.05, 3, 8.75)
+operation = 2
+size = Vector3(3, 3, 5)
+
 [node name="PuzzleDoor" parent="." instance=ExtResource("3_q0ntu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29, 4, 16)
 puzzle = 3
+
+[node name="PuzzleDoor2" parent="." instance=ExtResource("3_q0ntu")]
+transform = Transform3D(1.54, 0, 0, 0, 1.54, 0, 0, 0, 1.54, -28.4, 4, 8.7)
+puzzle = 5
 
 [node name="Item Pillar" parent="." instance=ExtResource("4_71k7q")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.12236, 1.5, 13.2899)
@@ -130,3 +145,7 @@ action = "Level4Skip"
 [node name="DartBoard" parent="." instance=ExtResource("11_3yc10")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -17.5061, 3.20854, -0.53944)
 puzzle = 5
+
+[node name="SecretNote" parent="." instance=ExtResource("12_e4nf0")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -30.0087, 1.645, 8.81362)
+lines = Array[String](["ramp puzzle secret"])

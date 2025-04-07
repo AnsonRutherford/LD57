@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://dqq2ikm3mcnhx"]
+[gd_scene load_steps=9 format=3 uid="uid://dqq2ikm3mcnhx"]
 
 [ext_resource type="Material" uid="uid://bh213bu1m3npl" path="res://Materials/brick.tres" id="1_ipx0u"]
 [ext_resource type="PackedScene" uid="uid://c8crg4715tk4u" path="res://Scenes/hot_cold_spot.tscn" id="2_ejl4w"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://catipv0japc8o" path="res://Scenes/PuzzleLight.tscn" id="5_x4ak0"]
 [ext_resource type="Script" uid="uid://6yf2x3v3ivdm" path="res://Scripts/cheat_spot.gd" id="6_xxtc8"]
 [ext_resource type="PackedScene" uid="uid://b6uwu1c84kjxf" path="res://Scenes/camo_dart_board.tscn" id="7_k6bsa"]
+[ext_resource type="PackedScene" uid="uid://b0akjn27q6flf" path="res://Scenes/SecretNote.tscn" id="8_klmyl"]
 
 [node name="HotColdPuzzle" type="Node3D"]
 
@@ -51,9 +52,23 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.9189, 15.6, 17.3541)
 operation = 2
 size = Vector3(3, 21, 3)
 
+[node name="CSGBox3D10" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -39.05, 3.5, -21.25)
+operation = 2
+size = Vector3(5, 6, 4)
+
+[node name="CSGBox3D11" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -40.55, 3, -21.25)
+operation = 2
+size = Vector3(3, 3, 5)
+
 [node name="PuzzleDoor" parent="." instance=ExtResource("3_okl1h")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -42.5356, 4, 17.5434)
 puzzle = 1
+
+[node name="PuzzleDoor2" parent="." instance=ExtResource("3_okl1h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -41.6, 4, -21.457)
+puzzle = 6
 
 [node name="Item Pillar" parent="." instance=ExtResource("4_n7p4q")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.3294, 1.5, -1.5123)
@@ -76,5 +91,9 @@ action = "Level2Skip"
 
 [node name="DartBoard" parent="." instance=ExtResource("7_k6bsa")]
 transform = Transform3D(-8.74228e-08, 0, 2, 0, 2, 0, -2, 0, -8.74228e-08, -41.479, 2, -25)
+
+[node name="SecretNote" parent="." instance=ExtResource("8_klmyl")]
+transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, -42.3522, 1.545, -21.2794)
+lines = Array[String](["hot cold secret found"])
 
 [editable path="HotColdSpot"]

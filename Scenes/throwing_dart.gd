@@ -23,7 +23,8 @@ func _process(delta: float) -> void:
 	if area.has_overlapping_areas():
 		print("dart hit")
 		for board in area.get_overlapping_areas():
-			board.get_parent().hit()
+			if board.get_parent() && board.get_parent().has_method("hit"):
+				board.get_parent().hit()
 	if area.has_overlapping_bodies():
 		destroy()
 
