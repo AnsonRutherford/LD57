@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://be1ony6j0aaqk" path="res://Scenes/dart_puzzle.tscn" id="6_urrcd"]
 [ext_resource type="PackedScene" uid="uid://kuxsieegr2lq" path="res://Scenes/ramp_puzzle.tscn" id="7_urrcd"]
 [ext_resource type="PackedScene" uid="uid://8c2ev7rtlxee" path="res://Scenes/treasure_room.tscn" id="8_puebw"]
-[ext_resource type="Script" path="res://Scripts/dialogue_camera.gd" id="9_puebw"]
+[ext_resource type="Script" uid="uid://d2abjak0nhd68" path="res://Scripts/dialogue_camera.gd" id="9_puebw"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_wbxth"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)

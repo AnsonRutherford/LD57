@@ -1,14 +1,34 @@
-[gd_scene load_steps=10 format=3 uid="uid://c2fbb4atf5n6p"]
+[gd_scene load_steps=18 format=3 uid="uid://c2fbb4atf5n6p"]
 
 [ext_resource type="PackedScene" uid="uid://cxwdrbb3xtufd" path="res://Scenes/Interactables/item_pillar.tscn" id="1_gka4x"]
 [ext_resource type="Material" uid="uid://bh213bu1m3npl" path="res://Materials/brick.tres" id="1_m020c"]
 [ext_resource type="Script" uid="uid://e8fkydpih07x" path="res://Scripts/light_puzzle.gd" id="1_psrkm"]
 [ext_resource type="PackedScene" uid="uid://bwtwjlhrpa181" path="res://Scenes/PuzzleDoor.tscn" id="3_dnawa"]
+[ext_resource type="Texture2D" uid="uid://b7w3288nf46b2" path="res://Materials/light_source_decal_1.png" id="4_3rw05"]
 [ext_resource type="PackedScene" uid="uid://d25mnqq71uc2" path="res://Scenes/light_beam.tscn" id="4_8kpn7"]
-[ext_resource type="Texture2D" uid="uid://brahchytmjufc" path="res://icon.svg" id="4_g1p2c"]
 [ext_resource type="Script" uid="uid://6yf2x3v3ivdm" path="res://Scripts/cheat_spot.gd" id="7_lsegc"]
+[ext_resource type="Texture2D" uid="uid://dx1a6fr8xgeg0" path="res://Materials/sun_decal.png" id="7_m7p7u"]
 [ext_resource type="PackedScene" uid="uid://wh64rs13lu1q" path="res://Scenes/npc.tscn" id="8_5xgy1"]
+[ext_resource type="Texture2D" uid="uid://dpmu5syqyciau" path="res://Materials/moon_decal.png" id="8_222sy"]
 [ext_resource type="PackedScene" uid="uid://b0akjn27q6flf" path="res://Scenes/SecretNote.tscn" id="9_g8par"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a8mnc"]
+albedo_texture = ExtResource("4_3rw05")
+texture_filter = 0
+
+[sub_resource type="QuadMesh" id="QuadMesh_mm7eh"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kil2n"]
+albedo_texture = ExtResource("7_m7p7u")
+texture_filter = 0
+
+[sub_resource type="QuadMesh" id="QuadMesh_3txno"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_37nyq"]
+albedo_texture = ExtResource("8_222sy")
+texture_filter = 0
+
+[sub_resource type="QuadMesh" id="QuadMesh_6iflq"]
 
 [node name="PuzzleRoom" type="Node3D"]
 
@@ -100,24 +120,27 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -12, 4
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 9, 4, 2.38462)
 puzzle = 2
 
-[node name="Light Source" type="Sprite3D" parent="."]
-transform = Transform3D(-2, 0, -3.01992e-07, 0, 2, 0, 3.01992e-07, 0, -2, -15, 3, -10.49)
-texture = ExtResource("4_g1p2c")
+[node name="Light Source" type="MeshInstance3D" parent="."]
+transform = Transform3D(2, 0, 1.27146e-07, 0, 2, 0, -1.27146e-07, 0, 2, -15, 3, -10.49)
+material_override = SubResource("StandardMaterial3D_a8mnc")
+mesh = SubResource("QuadMesh_mm7eh")
 
 [node name="Light Puzzle" type="Node3D" parent="Light Source"]
-transform = Transform3D(0.5, 0, -3.17865e-08, 0, 0.5, 0, 3.17865e-08, 0, 0.5, 0, 0, 0)
+transform = Transform3D(-0.5, 0, 7.54979e-08, 0, 0.5, 0, -7.54979e-08, 0, -0.5, 0, 0, 0)
 script = ExtResource("1_psrkm")
 
 [node name="LightBeam" parent="Light Source/Light Puzzle" instance=ExtResource("4_8kpn7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.1, 0, 0, 0)
 
-[node name="Sun Mural" type="Sprite3D" parent="."]
-transform = Transform3D(3.89414e-07, 0, -2, 0, 2, 0, 2, 0, 3.89414e-07, -25.49, 3, 5)
-texture = ExtResource("4_g1p2c")
+[node name="Sun Mural" type="MeshInstance3D" parent="."]
+transform = Transform3D(-5.6426e-07, 0, 2, 0, 2, 0, -2, 0, -5.6426e-07, -25.49, 3, 5)
+material_override = SubResource("StandardMaterial3D_kil2n")
+mesh = SubResource("QuadMesh_3txno")
 
-[node name="Moon Mural" type="Sprite3D" parent="."]
-transform = Transform3D(-2, 0, -3.01992e-07, 0, 2, 0, 3.01992e-07, 0, -2, 20, 3, -8.51)
-texture = ExtResource("4_g1p2c")
+[node name="Moon Mural" type="MeshInstance3D" parent="."]
+transform = Transform3D(2, 0, 1.27146e-07, 0, 2, 0, -1.27146e-07, 0, 2, 20, 3, -8.51)
+material_override = SubResource("StandardMaterial3D_37nyq")
+mesh = SubResource("QuadMesh_6iflq")
 
 [node name="Level1Skip" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 25, -6)

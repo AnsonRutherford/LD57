@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://kuxsieegr2lq"]
+[gd_scene load_steps=17 format=3 uid="uid://kuxsieegr2lq"]
 
 [ext_resource type="Material" uid="uid://bh213bu1m3npl" path="res://Materials/brick.tres" id="1_phgxn"]
 [ext_resource type="PackedScene" uid="uid://bwtwjlhrpa181" path="res://Scenes/PuzzleDoor.tscn" id="3_q0ntu"]
@@ -6,12 +6,25 @@
 [ext_resource type="PackedScene" uid="uid://catipv0japc8o" path="res://Scenes/PuzzleLight.tscn" id="5_5imf0"]
 [ext_resource type="PackedScene" uid="uid://c2o1myo8kq4d0" path="res://Scenes/HeightRamp.tscn" id="5_phgxn"]
 [ext_resource type="PackedScene" uid="uid://co3bvm6c52lky" path="res://models/ramp-top.glb" id="6_2y7eg"]
-[ext_resource type="Texture2D" uid="uid://brahchytmjufc" path="res://icon.svg" id="7_5imf0"]
+[ext_resource type="Texture2D" uid="uid://bp1ogtvd3n0tm" path="res://Materials/light_source_decal_2.png" id="7_e4nf0"]
 [ext_resource type="Script" uid="uid://bkdn2jtr0a8ny" path="res://Scripts/light_puzzle_jr.gd" id="8_wl1lg"]
 [ext_resource type="PackedScene" uid="uid://d25mnqq71uc2" path="res://Scenes/light_beam.tscn" id="9_3yc10"]
+[ext_resource type="Texture2D" uid="uid://digarefkubbf3" path="res://Materials/planet_decal.png" id="10_noleb"]
 [ext_resource type="Script" uid="uid://6yf2x3v3ivdm" path="res://Scripts/cheat_spot.gd" id="10_wl1lg"]
 [ext_resource type="PackedScene" uid="uid://depyfmd5t3sgb" path="res://Scenes/dart_board.tscn" id="11_3yc10"]
 [ext_resource type="PackedScene" uid="uid://b0akjn27q6flf" path="res://Scenes/SecretNote.tscn" id="12_e4nf0"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mo53j"]
+albedo_texture = ExtResource("7_e4nf0")
+texture_filter = 0
+
+[sub_resource type="QuadMesh" id="QuadMesh_4lq2i"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qmfx2"]
+albedo_texture = ExtResource("10_noleb")
+texture_filter = 0
+
+[sub_resource type="QuadMesh" id="QuadMesh_c8awf"]
 
 [node name="HotColdPuzzle" type="Node3D"]
 
@@ -122,20 +135,22 @@ pillar = "RampPillar3"
 [node name="ramp-top" parent="." instance=ExtResource("6_2y7eg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 1.5, -0.5)
 
-[node name="Light Source" type="Sprite3D" parent="."]
-transform = Transform3D(-2.98023e-07, 0, 2, 0, 2, 0, -2, 0, -2.98023e-07, 2.2, 9, 2)
-texture = ExtResource("7_5imf0")
+[node name="Light Source" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.23177e-07, 0, -2, 0, 2, 0, 2, 0, 1.23177e-07, 2.2, 9, 2)
+material_override = SubResource("StandardMaterial3D_mo53j")
+mesh = SubResource("QuadMesh_4lq2i")
 
 [node name="Light Puzzle" type="Node3D" parent="Light Source"]
-transform = Transform3D(0.5, 0, -3.17865e-08, 0, 0.5, 0, 3.17865e-08, 0, 0.5, 0, 0, 0)
+transform = Transform3D(-0.5, 0, -1.19249e-08, 0, 0.5, 0, 1.19249e-08, 0, -0.5, 0, 0, 0)
 script = ExtResource("8_wl1lg")
 
 [node name="LightBeam" parent="Light Source/Light Puzzle" instance=ExtResource("9_3yc10")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.1, 0, 0, 0)
 
-[node name="Planet Mural" type="Sprite3D" parent="."]
-transform = Transform3D(2, 0, 2.106e-07, 0, 2, 0, -2.106e-07, 0, 2, -20, 9, -2.275)
-texture = ExtResource("7_5imf0")
+[node name="Planet Mural" type="MeshInstance3D" parent="."]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -20, 9, -2.26631)
+material_override = SubResource("StandardMaterial3D_qmfx2")
+mesh = SubResource("QuadMesh_c8awf")
 
 [node name="Shortcut" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 4.14211, 11)
