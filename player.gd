@@ -15,12 +15,15 @@ var held_item: HELD_ITEM = HELD_ITEM.NONE
 @onready var ghost_rotation: Node3D = $GhostSpawnRotation
 @onready var ghost_location: Marker3D = $GhostSpawnRotation/GhostSpawnLocation
 @onready var ghost_ray: RayCast3D = $GhostSpawnRotation/GhostRaycast
+@onready var room_detector: Area3D = $RoomDetector
 
 var dart_scene: PackedScene = preload("res://Scenes/throwing_dart.tscn")
 var dart_cd: float = 1.0
 
 var held_items_base_pos: Vector3
 @onready var held_items_anim_player: AnimationPlayer = $Camera3D/HeldItemAnimations
+
+var cycles_done: int = 0
 
 func _ready() -> void:
 	Globals.player = self
@@ -186,3 +189,10 @@ func _input(event: InputEvent) -> void:
 		rotate_y(-event.relative.x * Globals.mouse_sens)
 		camera.rotate_x(-event.relative.y * Globals.mouse_sens)
 		camera.rotation.x = clampf(camera.rotation.x, -deg_to_rad(85), deg_to_rad(85))
+
+func is_in_treasure_room() -> bool:
+	return room_detector.has_overlapping_areas()
+
+func cycle_complete() -> void:
+	cycles_done += 1
+	print("playing completed cycle: ", cycles_done)

@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://b0akjn27q6flf" path="res://Scenes/SecretNote.tscn" id="9_g8par"]
 [ext_resource type="Texture2D" uid="uid://dxsdh5qpys0a1" path="res://Materials/bird token.png" id="12_m7p7u"]
 [ext_resource type="Texture2D" uid="uid://bgaxkec2wht0e" path="res://Materials/note_tablet.png" id="13_222sy"]
+[ext_resource type="PackedScene" uid="uid://catipv0japc8o" path="res://Scenes/PuzzleLight.tscn" id="12_m7p7u"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a8mnc"]
 albedo_texture = ExtResource("4_3rw05")
@@ -164,3 +165,12 @@ transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 20, 2.
 texture = ExtResource("13_222sy")
 puzzle = 9
 lines = Array[String](["An stone tablet written in an ancient language", "You found this in the first chamber of the ancient tomb you've come to explore", "Left click to pick up", "Right click to interact", "\"P\" to pause and review inventory", "WASD to move, shift to run"])
+
+[node name="PuzzleLight" parent="." instance=ExtResource("12_m7p7u")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 9, 3, 0.7)
+puzzle = 2
+light_level = 5.0
+
+[node name="PuzzleLight2" parent="." instance=ExtResource("12_m7p7u")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -12, 7, -10.3)
+puzzle = 0

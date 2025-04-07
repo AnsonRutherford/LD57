@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" path="res://Scenes/camo_dart_board.tscn" id="7_k6bsa"]
 [ext_resource type="PackedScene" uid="uid://b0akjn27q6flf" path="res://Scenes/SecretNote.tscn" id="8_klmyl"]
 [ext_resource type="Texture2D" uid="uid://dcpfoaqg7537e" path="res://Materials/chest token.png" id="9_2emjd"]
+[ext_resource type="PackedScene" uid="uid://wh64rs13lu1q" path="res://Scenes/npc.tscn" id="9_2emjd"]
 
 [node name="HotColdPuzzle" type="Node3D"]
 
@@ -78,10 +79,6 @@ held_item = 3
 [node name="Item Pillar2" parent="." instance=ExtResource("4_n7p4q")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -40.5294, 1.5, 14.4877)
 
-[node name="PuzzleLight" parent="." instance=ExtResource("5_x4ak0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -41.2594, 7.8671, 17.2737)
-script = null
-
 [node name="HotColdSpot" parent="." instance=ExtResource("2_ejl4w")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.4541, 0.499999, -26.613)
 
@@ -98,5 +95,17 @@ transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, -42.3522
 texture = ExtResource("9_2emjd")
 puzzle = 6
 lines = Array[String](["A small mysterious token"])
+
+[node name="PuzzleLight" parent="." instance=ExtResource("5_x4ak0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -41.329, 7.73186, 17.2568)
+
+[node name="PuzzleLight2" parent="." instance=ExtResource("5_x4ak0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -42.729, 2.83186, -21.1432)
+puzzle = 6
+light_level = 5.0
+
+[node name="NPC" parent="." instance=ExtResource("9_2emjd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -40.4542, 1.40165, 12.7785)
+lines = Array[String](["I saw something weird on the wall..."])
 
 [editable path="HotColdSpot"]

@@ -20,7 +20,7 @@ billboard_keep_scale = true
 script = ExtResource("1_acqhf")
 
 [node name="Visual" type="MeshInstance3D" parent="."]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0.0983534, 0)
+transform = Transform3D(-2, 0, 1.74846e-07, 0, 2, 0, -1.74846e-07, 0, -2, 0, 0.0983534, 0)
 material_override = ExtResource("2_g6unj")
 mesh = SubResource("QuadMesh_g6unj")
 surface_material_override/0 = SubResource("StandardMaterial3D_h1ryf")

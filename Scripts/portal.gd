@@ -20,4 +20,5 @@ func _process(delta: float) -> void:
 
 func portal_done() -> void:
 	activated = false
+	Globals.player.cycle_complete()
 	Globals.post_processing.reset()

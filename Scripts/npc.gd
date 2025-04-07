@@ -13,9 +13,11 @@ func _ready() -> void:
 	body.process_mode = PROCESS_MODE_DISABLED
 	
 func _process(_delta) -> void:
+	if Globals.player == null:
+		return
 	var pos = Globals.player.global_position
 	pos.y = global_position.y
-	# look_at(pos)
+	look_at(pos)
 
 func interact() -> void:
 	Globals.start_dialogue(eye_contact, lines[0])

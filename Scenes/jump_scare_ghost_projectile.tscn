@@ -10,6 +10,7 @@ script = ExtResource("1_sh418")
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
 billboard = 1
+texture_filter = 0
 texture = ExtResource("2_onsav")
 
 [node name="Area3D" type="Area3D" parent="."]

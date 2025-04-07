@@ -12,10 +12,13 @@ func _process(delta: float) -> void:
 	if Globals.curse_level == Globals.CURSE.NOT_CURSED || Globals.dialogue || Globals.paused:
 		return
 	
+	if Globals.player.is_in_treasure_room():
+		return
+	
 	time_till_next_ghost -= delta
 	
 	if time_till_next_ghost < 0:
-		time_till_next_ghost = randi_range(5, 10)
+		time_till_next_ghost = randi_range(5, 10) if Globals.curse_level == Globals.CURSE.EXTRA else randi_range(20, 25) 
 		spawn_ghost()
 
 func spawn_ghost():
