@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://8c2ev7rtlxee"]
+[gd_scene load_steps=10 format=3 uid="uid://8c2ev7rtlxee"]
 
 [ext_resource type="Material" uid="uid://bh213bu1m3npl" path="res://Materials/brick.tres" id="1_nhyoi"]
 [ext_resource type="Script" uid="uid://cntn6xl1cwff" path="res://Scripts/portal.gd" id="2_e3umy"]
 [ext_resource type="Script" uid="uid://6yf2x3v3ivdm" path="res://Scripts/cheat_spot.gd" id="3_cuqsb"]
 [ext_resource type="Texture2D" uid="uid://brahchytmjufc" path="res://icon.svg" id="4_nhyoi"]
 [ext_resource type="Script" uid="uid://ctwjkqu4ca32y" path="res://Scripts/mummy.gd" id="5_uclbc"]
+[ext_resource type="PackedScene" uid="uid://djyal4hxbmr26" path="res://models/sarcophagus.glb" id="6_nhyoi"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_cuqsb"]
 size = Vector3(5, 5, 5)
@@ -105,3 +106,6 @@ collision_mask = 0
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Explorer Ghost/Area3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, 0)
 shape = SubResource("CylinderShape3D_gad1e")
+
+[node name="sarcophagus" parent="." instance=ExtResource("6_nhyoi")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -11.3382, 1.04, -12.7355)

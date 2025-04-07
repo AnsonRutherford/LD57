@@ -33,6 +33,7 @@ signal GAME_PAUSED
 signal GAME_UNPAUSED
 
 signal CURSE_LEVEL_CHANGED
+signal GHOST_HIT
 
 signal SECRET_NOTE_ACQUIRED(note: SecretNote)
 signal NOTE_HOVERED (note_visual: InventoryNoteVisual)

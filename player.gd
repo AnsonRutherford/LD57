@@ -12,6 +12,9 @@ var held_item: HELD_ITEM = HELD_ITEM.NONE
 @onready var held_item_meshes: Node3D = $Camera3D/HeldItems
 @onready var pickup_sound: AudioStreamPlayer = $PickupAudio
 @onready var red_hot_sound: AudioStreamPlayer = $RedHotAudio
+@onready var ghost_rotation: Node3D = $GhostSpawnRotation
+@onready var ghost_location: Marker3D = $GhostSpawnRotation/GhostSpawnLocation
+@onready var ghost_ray: RayCast3D = $GhostSpawnRotation/GhostRaycast
 
 var dart_scene: PackedScene = preload("res://Scenes/throwing_dart.tscn")
 var dart_cd: float = 1.0
@@ -57,7 +60,7 @@ func _physics_process(delta: float) -> void:
 		Globals.PUZZLE_SOLVED.emit(Globals.PUZZLE.MOON_LIGHT)
 	
 	if Input.is_action_just_pressed("ui_down"):
-		held_items_anim_player.play("moving")
+		GhostService.spawn_ghost()
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
@@ -72,6 +75,13 @@ func _physics_process(delta: float) -> void:
 		velocity.z = move_toward(velocity.z, 0, SPEED)
 
 	move_and_slide()
+	
+	# item bobbing
+	if velocity.x != 0 && velocity.z != 0:
+		var bob_speed = 3.0 if Input.is_action_pressed("run") else 1.5
+		held_items_anim_player.play("moving2", -1, bob_speed)
+	else:
+		held_items_anim_player.play("still", .15)
 	
 	# interact/pickup
 	if Input.is_action_just_pressed("interact") && interact_cast.is_colliding():
@@ -166,6 +176,8 @@ func match_dialogue_camera() -> void:
 	dc_flat_look.y = global_position.y
 	look_at(dc_flat_look)
 	camera.look_at(dc_look)
+	camera.rotation.y = 0
+	camera.rotation.z = 0
 
 func _input(event: InputEvent) -> void:
 	if Globals.paused or Globals.dialogue:

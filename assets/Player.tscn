@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://p6topo8tswhw"]
+[gd_scene load_steps=21 format=3 uid="uid://p6topo8tswhw"]
 
 [ext_resource type="Script" uid="uid://c8ycnna57ggbv" path="res://player.gd" id="1_3vv5g"]
 [ext_resource type="ArrayMesh" uid="uid://bsrdgmt2fu12q" path="res://assets/mirror.res" id="2_3s7hn"]
@@ -23,6 +23,28 @@ tracks/0/path = NodePath("HeldItems")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = PackedFloat32Array(0, 1, 0.336184, -0.166754, -0.576746)
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("HeldItems:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("HeldItems:position:x")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
 
 [sub_resource type="Animation" id="Animation_h0t6j"]
 resource_name = "moving"
@@ -30,14 +52,52 @@ tracks/0/type = "position_3d"
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/path = NodePath("HeldItems")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0.336184, -0.166754, -0.576746, 0.25, 1, 0.3, -0.1, -0.577, 0.5, 1, 0.336184, -0.166754, -0.576746, 0.766667, 1, 0.4, -0.1, -0.577, 1, 1, 0.336184, -0.166754, -0.576746)
+
+[sub_resource type="Animation" id="Animation_ornw5"]
+resource_name = "moving2"
+loop_mode = 1
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("HeldItems:position:x")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
-tracks/0/keys = PackedFloat32Array(0, 1, 0.336184, -0.166754, -0.576746, 0.25, 1, 0.3, -0.1, -0.577, 0.5, 1, 0.336184, -0.166754, -0.576746, 0.75, 1, 0.4, -0.1, -0.577, 1, 1, 0.336184, -0.166754, -0.576746)
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 2, 2, 2, 2),
+"points": PackedFloat32Array(0.336, -0.25, 0, 0.233333, -0.0178309, 0.300086, -0.0666667, 0.0336999, 0.0632922, -0.0319941, 0.336, -0.0611796, -0.0339903, 0.0666667, 0.0370388, 0.4, -0.0833333, -0.0358248, 0.0712239, 0.030619, 0.338851, -0.133333, -0.00379869, 0, 0),
+"times": PackedFloat32Array(0, 0.266667, 0.5, 0.75, 1)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("HeldItems:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0, 3),
+"points": PackedFloat32Array(-0.167, -0.25, 0, 0.166667, 0.0601387, -0.1, -0.0583333, 0, 0.0583333, 0, -0.167, -0.0666667, 0.0272167, 0.0666667, -0.0272167, -0.1, -0.0625, 0, 0.0625, 0, -0.167, -0.0666667, -0.015835, 0.0666667, 0.015835),
+"times": PackedFloat32Array(0, 0.233333, 0.533333, 0.733333, 1)
+}
+
+[sub_resource type="Animation" id="Animation_4x33a"]
+resource_name = "still"
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("HeldItems")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array()
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_8yuhy"]
 _data = {
 &"RESET": SubResource("Animation_ko4v8"),
-&"moving": SubResource("Animation_h0t6j")
+&"moving": SubResource("Animation_h0t6j"),
+&"moving2": SubResource("Animation_ornw5"),
+&"still": SubResource("Animation_4x33a")
 }
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xhfnw"]
@@ -75,7 +135,7 @@ libraries = {
 }
 
 [node name="HeldItems" type="Node3D" parent="Camera3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.336184, -0.166754, -0.576746)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.576746)
 
 [node name="PlaceHolder" type="MeshInstance3D" parent="Camera3D/HeldItems"]
 unique_name_in_owner = true
@@ -85,12 +145,12 @@ mesh = SubResource("CylinderMesh_xhfnw")
 [node name="HotCold" type="MeshInstance3D" parent="Camera3D/HeldItems"]
 unique_name_in_owner = true
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+visible = false
 mesh = ExtResource("2_h0t6j")
 
 [node name="Mirror" type="MeshInstance3D" parent="Camera3D/HeldItems"]
 unique_name_in_owner = true
-transform = Transform3D(0.105655, 0, 0.226577, -0.0393447, 0.246202, 0.0183467, -0.223135, -0.043412, 0.104049, 0, 0, 0)
-visible = false
+transform = Transform3D(0.105655, 9.31323e-09, 0.226577, -0.0393447, 0.246202, 0.0183467, -0.223135, -0.043412, 0.10405, 0, -0.18, 0)
 mesh = ExtResource("2_3s7hn")
 
 [node name="GreenGem" type="MeshInstance3D" parent="Camera3D/HeldItems"]
@@ -139,3 +199,12 @@ stream = ExtResource("9_8yuhy")
 [node name="DartThrowAudio" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("10_4x33a")
 mix_target = 2
+
+[node name="GhostSpawnRotation" type="Node3D" parent="."]
+
+[node name="GhostSpawnLocation" type="Marker3D" parent="GhostSpawnRotation"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 0, 0)
+
+[node name="GhostRaycast" type="RayCast3D" parent="GhostSpawnRotation"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
+target_position = Vector3(0, 0, 10)

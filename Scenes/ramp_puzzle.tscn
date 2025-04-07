@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://kuxsieegr2lq"]
+[gd_scene load_steps=18 format=3 uid="uid://kuxsieegr2lq"]
 
 [ext_resource type="Material" uid="uid://bh213bu1m3npl" path="res://Materials/brick.tres" id="1_phgxn"]
 [ext_resource type="PackedScene" uid="uid://bwtwjlhrpa181" path="res://Scenes/PuzzleDoor.tscn" id="3_q0ntu"]

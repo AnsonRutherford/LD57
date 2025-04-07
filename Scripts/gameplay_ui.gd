@@ -79,7 +79,7 @@ func _on_secret_note_found(note_found: SecretNote):
 	if len(note_found.lines) > 0:
 		note.text = ""
 		for line in note_found.lines:
-			note.text += line + "\n"
+			note.text +=  "\n" + line
 	
 	note_container.add_child(note)
 
@@ -89,10 +89,14 @@ func _on_note_hovered(note: InventoryNoteVisual):
 	for child in focused_note_container.get_children():
 		child.queue_free()
 	var focused_note = preload("res://Scenes/InventoryNoteVisual.tscn").instantiate()
-	focused_note.scale = Vector2.ONE * 2
+	focused_note.text = note.text
+	focused_note.custom_minimum_size = Vector2(300, 300)
+	focused_note.size_flags_horizontal = Control.SIZE_SHRINK_CENTER
+	focused_note.size_flags_vertical = Control.SIZE_SHRINK_CENTER
 	focused_note_container.add_child(focused_note)
 	
 	var label = Label.new()
 	label.text = note.text
 	label.autowrap_mode = TextServer.AUTOWRAP_WORD
+	label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	focused_note_container.add_child(label)
