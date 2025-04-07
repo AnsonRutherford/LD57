@@ -35,6 +35,10 @@ func _ready() -> void:
 			new_mat.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
 		
 		held_item.material_override = new_mat
+		
+func _process(_delta) -> void:
+	if Globals.dialogue:
+		match_dialogue_camera()
 
 func _physics_process(delta: float) -> void:
 	if Globals.paused or Globals.dialogue:
@@ -152,6 +156,9 @@ func die() -> void:
 	
 func _on_end_dialogue() -> void:
 	camera.make_current()
+	match_dialogue_camera()
+
+func match_dialogue_camera() -> void:
 	var dc_forward = -DialogueCamera.instance.basis.z
 	var dc_pos = DialogueCamera.instance.global_position
 	var dc_look = dc_pos + dc_forward
