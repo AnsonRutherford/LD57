@@ -17,9 +17,8 @@ func hit():
 		return
 	print("dartboard is hit")
 	is_hit = true
-	if $Sprite3D:
-		$Sprite3D.modulate = Color(1, 1, 1, 0.3)
-	if $MeshInstance3D:
+	$Sprite3D.modulate = Color(1, 1, 1, 0.3)
+	if has_node("MeshInstance3D"):
 		var tween = create_tween()
 		var sprite: Sprite3D = $Sprite3D
 		tween.tween_property(sprite, "modulate", Color(1, 1, 1, 1), .5)
