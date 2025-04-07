@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://p6topo8tswhw"]
+[gd_scene load_steps=22 format=3 uid="uid://p6topo8tswhw"]
 
 [ext_resource type="Script" uid="uid://c8ycnna57ggbv" path="res://player.gd" id="1_3vv5g"]
 [ext_resource type="ArrayMesh" uid="uid://bsrdgmt2fu12q" path="res://assets/mirror.res" id="2_3s7hn"]
@@ -114,6 +114,8 @@ height = 0.1
 [sub_resource type="BoxShape3D" id="BoxShape3D_xhfnw"]
 size = Vector3(50, 50, 50)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_4x33a"]
+
 [node name="CharacterBody3D" type="CharacterBody3D"]
 collision_layer = 4
 script = ExtResource("1_3vv5g")
@@ -208,3 +210,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 0, 0)
 [node name="GhostRaycast" type="RayCast3D" parent="GhostSpawnRotation"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
 target_position = Vector3(0, 0, 10)
+
+[node name="RoomDetector" type="Area3D" parent="."]
+collision_layer = 0
+collision_mask = 64
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RoomDetector"]
+shape = SubResource("BoxShape3D_4x33a")

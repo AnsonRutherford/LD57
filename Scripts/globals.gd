@@ -12,8 +12,9 @@ var post_processing: PostProcessing = null
 
 var post_processing_scene: PackedScene = preload("res://Scenes/post_processing.tscn")
 
-enum CURSE {NOT_CURSED, FIRST_LOOP}
+enum CURSE {NOT_CURSED, FIRST_LOOP, EXTRA}
 var curse_level: CURSE = CURSE.NOT_CURSED
+var cycles = 0
 
 var player: Player
 
