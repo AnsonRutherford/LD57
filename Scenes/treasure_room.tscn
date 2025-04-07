@@ -69,7 +69,7 @@ teleport_destination = Vector3(20, 25, -6)
 shape = SubResource("BoxShape3D_cuqsb")
 
 [node name="Level5Skip" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 4, -6)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.2838, 4, -6)
 script = ExtResource("3_cuqsb")
 action = "Level5Skip"
 

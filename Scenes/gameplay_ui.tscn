@@ -1,0 +1,49 @@
+[gd_scene load_steps=2 format=3 uid="uid://umroavanxsig"]
+
+[ext_resource type="Script" uid="uid://btmx0covcu8df" path="res://Scripts/gameplay_ui.gd" id="1_ropn4"]
+
+[node name="GameplayUI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ropn4")
+
+[node name="Dialogue" type="VBoxContainer" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Control" type="Control" parent="Dialogue"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 4.0
+
+[node name="Text" type="RichTextLabel" parent="Dialogue"]
+layout_mode = 2
+size_flags_vertical = 3
+bbcode_enabled = true
+text = "TEXT"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Pause Menu" type="VBoxContainer" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Exit Button" type="Button" parent="Pause Menu"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+text = "Go back to main menu"

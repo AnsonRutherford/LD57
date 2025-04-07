@@ -19,9 +19,9 @@ var held_items_base_pos: Vector3
 
 func _ready() -> void:
 	Globals.player = self
-	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	$Visual.visible = false
 	held_items_base_pos = held_item_meshes.position
+	Globals.END_DIALOGUE.connect(_on_end_dialogue)
 	
 	for held_item: MeshInstance3D in $Camera3D/HeldItems.get_children():
 		held_item.visible = false
@@ -35,6 +35,9 @@ func _ready() -> void:
 		held_item.material_override = new_mat
 
 func _physics_process(delta: float) -> void:
+	if Globals.paused or Globals.dialogue:
+		return
+	
 	dart_cd -= delta
 	# Add the gravity.
 	if not is_on_floor():
@@ -129,8 +132,20 @@ func lose_held_item() -> void:
 
 func die() -> void:
 	print("dying")
+	
+func _on_end_dialogue() -> void:
+	camera.make_current()
+	var dc_forward = -DialogueCamera.instance.basis.z
+	var dc_pos = DialogueCamera.instance.global_position
+	var dc_look = dc_pos + dc_forward
+	var dc_flat_look = dc_look
+	dc_flat_look.y = global_position.y
+	look_at(dc_flat_look)
+	camera.look_at(dc_look)
 
 func _input(event: InputEvent) -> void:
+	if Globals.paused or Globals.dialogue:
+		return
 	if event is InputEventMouseMotion:
 		rotate_y(-event.relative.x * Globals.mouse_sens)
 		camera.rotate_x(-event.relative.y * Globals.mouse_sens)
