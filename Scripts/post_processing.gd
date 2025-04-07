@@ -19,4 +19,4 @@ func enable_depth_fade() -> void:
 	visible = true
 
 func disable_depth_fade() -> void:
-	visible = false
+	pass#visible = false

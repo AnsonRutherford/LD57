@@ -30,5 +30,6 @@ func _process(delta: float) -> void:
 func destroy():
 	print("dart hit wall")
 	moving = false
+	$Hit.play()
 	await get_tree().create_timer(3).timeout
 	queue_free()

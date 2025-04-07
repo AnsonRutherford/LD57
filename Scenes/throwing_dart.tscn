@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://ds65umq0kfrqy"]
+[gd_scene load_steps=5 format=3 uid="uid://ds65umq0kfrqy"]
 
 [ext_resource type="PackedScene" uid="uid://sdb7jakfqgyy" path="res://models/dart.glb" id="1_gbk23"]
 [ext_resource type="Script" uid="uid://rhl6d3p3o532" path="res://Scenes/throwing_dart.gd" id="1_n6y3u"]
+[ext_resource type="AudioStream" uid="uid://fs0h7jt5l5ha" path="res://audio/dart-hits.ogg" id="3_e7us8"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_n6y3u"]
 
@@ -20,5 +21,8 @@ collision_mask = 17
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
 shape = SubResource("BoxShape3D_n6y3u")
+
+[node name="Hit" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("3_e7us8")
 
 [editable path="dart"]

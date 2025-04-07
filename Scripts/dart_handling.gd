@@ -8,6 +8,9 @@ var regular_dart_boards_hit: int = 0
 const secret_dart_boards: int = 1
 var secret_dart_boards_hit: int = 0
 
+const camo_dart_boards: int = 1
+var camo_dart_boards_hit: int = 0
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	DART_BOARD_HIT.connect(_dartboard_handle)
@@ -29,3 +32,8 @@ func _dartboard_handle(puzzle: Globals.PUZZLE) -> void:
 		if secret_dart_boards_hit >= secret_dart_boards:
 			print("secret dart puzzle solved")
 			Globals.PUZZLE_SOLVED.emit(Globals.PUZZLE.SECRET_DART)
+	if puzzle == Globals.PUZZLE.CAMO_DART:
+		camo_dart_boards_hit += 1
+		if camo_dart_boards_hit >= camo_dart_boards:
+			print("camo dart puzzle solved")
+			Globals.PUZZLE_SOLVED.emit(Globals.PUZZLE.CAMO_DART)
