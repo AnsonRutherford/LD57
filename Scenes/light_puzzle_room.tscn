@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://c2fbb4atf5n6p"]
+[gd_scene load_steps=19 format=3 uid="uid://c2fbb4atf5n6p"]
 
 [ext_resource type="PackedScene" uid="uid://cxwdrbb3xtufd" path="res://Scenes/Interactables/item_pillar.tscn" id="1_gka4x"]
 [ext_resource type="Material" uid="uid://bh213bu1m3npl" path="res://Materials/brick.tres" id="1_m020c"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://wh64rs13lu1q" path="res://Scenes/npc.tscn" id="8_5xgy1"]
 [ext_resource type="Texture2D" uid="uid://dpmu5syqyciau" path="res://Materials/moon_decal.png" id="8_222sy"]
 [ext_resource type="PackedScene" uid="uid://b0akjn27q6flf" path="res://Scenes/SecretNote.tscn" id="9_g8par"]
+[ext_resource type="PackedScene" uid="uid://catipv0japc8o" path="res://Scenes/PuzzleLight.tscn" id="12_m7p7u"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a8mnc"]
 albedo_texture = ExtResource("4_3rw05")
@@ -154,3 +155,12 @@ lines = Array[String](["I feel like something's missing......"])
 [node name="SecretNote" parent="." instance=ExtResource("9_g8par")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.97752, 2.06945, 2.11135)
 lines = Array[String](["Testing a text thats text", "line two", "oh man its a third line"])
+
+[node name="PuzzleLight" parent="." instance=ExtResource("12_m7p7u")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 9, 3, 0.7)
+puzzle = 2
+light_level = 5.0
+
+[node name="PuzzleLight2" parent="." instance=ExtResource("12_m7p7u")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -12, 7, -10.3)
+puzzle = 0

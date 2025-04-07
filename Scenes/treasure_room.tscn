@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://8c2ev7rtlxee"]
+[gd_scene load_steps=11 format=3 uid="uid://8c2ev7rtlxee"]
 
 [ext_resource type="Material" uid="uid://bh213bu1m3npl" path="res://Materials/brick.tres" id="1_nhyoi"]
 [ext_resource type="Script" uid="uid://cntn6xl1cwff" path="res://Scripts/portal.gd" id="2_e3umy"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://brahchytmjufc" path="res://icon.svg" id="4_nhyoi"]
 [ext_resource type="Script" uid="uid://ctwjkqu4ca32y" path="res://Scripts/mummy.gd" id="5_uclbc"]
 [ext_resource type="PackedScene" uid="uid://djyal4hxbmr26" path="res://models/sarcophagus.glb" id="6_nhyoi"]
+[ext_resource type="PackedScene" uid="uid://5c7dda6t1723" path="res://Scenes/rotatable_switch.tscn" id="7_uclbc"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_cuqsb"]
 size = Vector3(5, 5, 5)
@@ -109,3 +110,19 @@ shape = SubResource("CylinderShape3D_gad1e")
 
 [node name="sarcophagus" parent="." instance=ExtResource("6_nhyoi")]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -11.3382, 1.04, -12.7355)
+
+[node name="RotatableSwitch" parent="." instance=ExtResource("7_uclbc")]
+transform = Transform3D(-3, 0, 2.62268e-07, 0, 3, 0, -2.62268e-07, 0, -3, -14.3212, 2.98959, 2.275)
+id = 1
+
+[node name="RotatableSwitch2" parent="." instance=ExtResource("7_uclbc")]
+transform = Transform3D(-3, 0, 2.62268e-07, 0, 3, 0, -2.62268e-07, 0, -3, -17.3212, 2.98959, 2.275)
+id = 2
+
+[node name="RotatableSwitch3" parent="." instance=ExtResource("7_uclbc")]
+transform = Transform3D(-3, 0, 2.62268e-07, 0, 3, 0, -2.62268e-07, 0, -3, -20.3212, 2.98959, 2.275)
+id = 3
+
+[node name="RotatableSwitch4" parent="." instance=ExtResource("7_uclbc")]
+transform = Transform3D(-3, 0, 2.62268e-07, 0, 3, 0, -2.62268e-07, 0, -3, -23.3212, 2.98959, 2.275)
+id = 4

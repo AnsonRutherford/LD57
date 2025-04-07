@@ -23,6 +23,7 @@ signal PUZZLE_SOLVED(puzzle: PUZZLE)
 signal BOULDER_TRAP
 signal PILLAR_INTERACT(pillar: ItemPillar)
 signal PILLAR_PICKUP(pillar: ItemPillar)
+signal ROTABLE_SWITCH_TOUCHED(id: int, position: int)
 
 signal START_DIALOGUE(speaker: Node3D, text: String)
 signal CONTINUE_DIALOGUE(speaker: Node3D, text: String)
@@ -38,12 +39,19 @@ signal GHOST_HIT
 signal SECRET_NOTE_ACQUIRED(note: SecretNote)
 signal NOTE_HOVERED (note_visual: InventoryNoteVisual)
 
+var rot_switch_pos: Dictionary[int, int] = {
+	1: 0,
+	2: 0,
+	3: 0,
+	4: 0
+}
+
 func _ready() -> void:
 	var node = post_processing_scene.instantiate()
 	add_child(node)
 	post_processing = node.get_child(0)
 	load_main_menu()
-	
+
 func toggle_pause() -> void:
 	if paused:
 		paused = false
@@ -99,3 +107,9 @@ func end_dialogue() -> void:
 		return
 	dialogue = false
 	END_DIALOGUE.emit()
+
+func check_win_condition(id: int, position: int):
+	rot_switch_pos[id] = position
+	if rot_switch_pos[1] == 2 && rot_switch_pos[2] == 3 && rot_switch_pos[3] == 2 && rot_switch_pos[4] == 1:
+		Globals.PUZZLE_SOLVED.emit(Globals.PUZZLE.FINAL_PUZZLE)
+		print("final puzzle solved")
