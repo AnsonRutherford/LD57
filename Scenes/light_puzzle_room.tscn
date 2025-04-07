@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://c2fbb4atf5n6p"]
+[gd_scene load_steps=20 format=3 uid="uid://c2fbb4atf5n6p"]
 
 [ext_resource type="PackedScene" uid="uid://cxwdrbb3xtufd" path="res://Scenes/Interactables/item_pillar.tscn" id="1_gka4x"]
 [ext_resource type="Material" uid="uid://bh213bu1m3npl" path="res://Materials/brick.tres" id="1_m020c"]
@@ -11,6 +11,8 @@
 [ext_resource type="PackedScene" uid="uid://wh64rs13lu1q" path="res://Scenes/npc.tscn" id="8_5xgy1"]
 [ext_resource type="Texture2D" uid="uid://dpmu5syqyciau" path="res://Materials/moon_decal.png" id="8_222sy"]
 [ext_resource type="PackedScene" uid="uid://b0akjn27q6flf" path="res://Scenes/SecretNote.tscn" id="9_g8par"]
+[ext_resource type="Texture2D" uid="uid://dxsdh5qpys0a1" path="res://Materials/bird token.png" id="12_m7p7u"]
+[ext_resource type="Texture2D" uid="uid://bgaxkec2wht0e" path="res://Materials/note_tablet.png" id="13_222sy"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a8mnc"]
 albedo_texture = ExtResource("4_3rw05")
@@ -153,4 +155,12 @@ lines = Array[String](["I feel like something's missing......"])
 
 [node name="SecretNote" parent="." instance=ExtResource("9_g8par")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.97752, 2.06945, 2.11135)
-lines = Array[String](["Testing a text thats text", "line two", "oh man its a third line"])
+texture = ExtResource("12_m7p7u")
+puzzle = 2
+lines = Array[String](["A small mysterious token"])
+
+[node name="Intro Note" parent="." instance=ExtResource("9_g8par")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 20, 2.7, 5)
+texture = ExtResource("13_222sy")
+puzzle = 9
+lines = Array[String](["An stone tablet written in an ancient language", "You found this in the first chamber of the ancient tomb you've come to explore", "Left click to pick up", "Right click to interact", "\"P\" to pause and review inventory", "WASD to move, shift to run"])

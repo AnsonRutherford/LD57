@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://kuxsieegr2lq"]
+[gd_scene load_steps=19 format=3 uid="uid://kuxsieegr2lq"]
 
 [ext_resource type="Material" uid="uid://bh213bu1m3npl" path="res://Materials/brick.tres" id="1_phgxn"]
 [ext_resource type="PackedScene" uid="uid://bwtwjlhrpa181" path="res://Scenes/PuzzleDoor.tscn" id="3_q0ntu"]
@@ -13,6 +13,7 @@
 [ext_resource type="Script" uid="uid://6yf2x3v3ivdm" path="res://Scripts/cheat_spot.gd" id="10_wl1lg"]
 [ext_resource type="PackedScene" uid="uid://depyfmd5t3sgb" path="res://Scenes/dart_board.tscn" id="11_3yc10"]
 [ext_resource type="PackedScene" uid="uid://b0akjn27q6flf" path="res://Scenes/SecretNote.tscn" id="12_e4nf0"]
+[ext_resource type="Texture2D" uid="uid://bhd3qrdn012hf" path="res://Materials/sword_token.png" id="14_mo53j"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mo53j"]
 albedo_texture = ExtResource("7_e4nf0")
@@ -162,5 +163,7 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -17.50
 puzzle = 5
 
 [node name="SecretNote" parent="." instance=ExtResource("12_e4nf0")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -30.0087, 1.645, 8.81362)
-lines = Array[String](["ramp puzzle secret"])
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -30.0087, 1.845, 8.81362)
+texture = ExtResource("14_mo53j")
+puzzle = 5
+lines = Array[String](["A small mysterious token"])

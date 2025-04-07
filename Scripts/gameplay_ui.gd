@@ -76,6 +76,8 @@ func _on_exit_button_pressed():
 func _on_secret_note_found(note_found: SecretNote):
 	var note: InventoryNoteVisual = preload("res://Scenes/InventoryNoteVisual.tscn").instantiate()
 	
+	note.set_image(note_found.texture)
+	
 	if len(note_found.lines) > 0:
 		note.text = ""
 		for line in note_found.lines:
@@ -93,6 +95,7 @@ func _on_note_hovered(note: InventoryNoteVisual):
 	focused_note.custom_minimum_size = Vector2(300, 300)
 	focused_note.size_flags_horizontal = Control.SIZE_SHRINK_CENTER
 	focused_note.size_flags_vertical = Control.SIZE_SHRINK_CENTER
+	focused_note.texture = note.texture
 	focused_note_container.add_child(focused_note)
 	
 	var label = Label.new()

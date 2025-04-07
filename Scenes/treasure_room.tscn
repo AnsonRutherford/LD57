@@ -1,10 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://8c2ev7rtlxee"]
+[gd_scene load_steps=11 format=3 uid="uid://8c2ev7rtlxee"]
 
 [ext_resource type="Material" uid="uid://bh213bu1m3npl" path="res://Materials/brick.tres" id="1_nhyoi"]
 [ext_resource type="Script" uid="uid://cntn6xl1cwff" path="res://Scripts/portal.gd" id="2_e3umy"]
 [ext_resource type="Script" uid="uid://6yf2x3v3ivdm" path="res://Scripts/cheat_spot.gd" id="3_cuqsb"]
-[ext_resource type="Texture2D" uid="uid://brahchytmjufc" path="res://icon.svg" id="4_nhyoi"]
+[ext_resource type="Texture2D" uid="uid://dyajyyndq8bvt" path="res://Materials/money_ghost.png" id="4_uclbc"]
 [ext_resource type="Script" uid="uid://ctwjkqu4ca32y" path="res://Scripts/mummy.gd" id="5_uclbc"]
+[ext_resource type="Texture2D" uid="uid://dpydj3pimbxm0" path="res://Materials/explorer_ghost.png" id="6_3ips4"]
 [ext_resource type="PackedScene" uid="uid://djyal4hxbmr26" path="res://models/sarcophagus.glb" id="6_nhyoi"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_cuqsb"]
@@ -76,12 +77,11 @@ action = "Level5Skip"
 
 [node name="Mummy" type="Sprite3D" parent="."]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -15, 2, -5.5)
-texture = ExtResource("4_nhyoi")
+pixel_size = 0.02
+billboard = 2
+texture_filter = 0
+texture = ExtResource("4_uclbc")
 script = ExtResource("5_uclbc")
-
-[node name="Label3D" type="Label3D" parent="Mummy"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-text = "THE MUMMY"
 
 [node name="Trigger Zone" type="Area3D" parent="Mummy"]
 collision_layer = 0
@@ -91,12 +91,11 @@ collision_mask = 4
 shape = SubResource("BoxShape3D_mml4d")
 
 [node name="Explorer Ghost" type="Sprite3D" parent="."]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -10, 2, 0.5)
-texture = ExtResource("4_nhyoi")
-
-[node name="Label3D" type="Label3D" parent="Explorer Ghost"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-text = "EXPLORER GHOST"
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -6.09855, 1.3, 0.5)
+pixel_size = 0.015
+billboard = 2
+texture_filter = 0
+texture = ExtResource("6_3ips4")
 
 [node name="Area3D" type="Area3D" parent="Explorer Ghost"]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, -0.5, 0)

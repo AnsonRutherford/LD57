@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dqq2ikm3mcnhx"]
+[gd_scene load_steps=10 format=3 uid="uid://dqq2ikm3mcnhx"]
 
 [ext_resource type="Material" uid="uid://bh213bu1m3npl" path="res://Materials/brick.tres" id="1_ipx0u"]
 [ext_resource type="PackedScene" uid="uid://c8crg4715tk4u" path="res://Scenes/hot_cold_spot.tscn" id="2_ejl4w"]
@@ -6,8 +6,9 @@
 [ext_resource type="PackedScene" uid="uid://cxwdrbb3xtufd" path="res://Scenes/Interactables/item_pillar.tscn" id="4_n7p4q"]
 [ext_resource type="PackedScene" uid="uid://catipv0japc8o" path="res://Scenes/PuzzleLight.tscn" id="5_x4ak0"]
 [ext_resource type="Script" uid="uid://6yf2x3v3ivdm" path="res://Scripts/cheat_spot.gd" id="6_xxtc8"]
-[ext_resource type="PackedScene" uid="uid://b6uwu1c84kjxf" path="res://Scenes/camo_dart_board.tscn" id="7_k6bsa"]
+[ext_resource type="PackedScene" path="res://Scenes/camo_dart_board.tscn" id="7_k6bsa"]
 [ext_resource type="PackedScene" uid="uid://b0akjn27q6flf" path="res://Scenes/SecretNote.tscn" id="8_klmyl"]
+[ext_resource type="Texture2D" uid="uid://dcpfoaqg7537e" path="res://Materials/chest token.png" id="9_2emjd"]
 
 [node name="HotColdPuzzle" type="Node3D"]
 
@@ -93,7 +94,9 @@ action = "Level2Skip"
 transform = Transform3D(-8.74228e-08, 0, 2, 0, 2, 0, -2, 0, -8.74228e-08, -41.479, 2, -25)
 
 [node name="SecretNote" parent="." instance=ExtResource("8_klmyl")]
-transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, -42.3522, 1.545, -21.2794)
-lines = Array[String](["hot cold secret found"])
+transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, -42.3522, 1.845, -21.2794)
+texture = ExtResource("9_2emjd")
+puzzle = 6
+lines = Array[String](["A small mysterious token"])
 
 [editable path="HotColdSpot"]
