@@ -10,6 +10,8 @@ var held_item: HELD_ITEM = HELD_ITEM.NONE
 @onready var camera: Camera3D = $Camera3D
 @onready var interact_cast: RayCast3D = $Camera3D/InteractRaycast
 @onready var held_item_meshes: Node3D = $Camera3D/HeldItems
+@onready var pickup_sound: AudioStreamPlayer = $PickupAudio
+@onready var red_hot_sound: AudioStreamPlayer = $RedHotAudio
 
 var dart_scene: PackedScene = preload("res://Scenes/throwing_dart.tscn")
 var dart_cd: float = 1.0
@@ -88,8 +90,14 @@ func _physics_process(delta: float) -> void:
 			var nearby_areas = $HotColdArea.get_overlapping_areas()
 			var distance = self.global_position.distance_to(nearby_areas[0].global_position) * 50
 			print("distance: ", distance)
+			print(255 / distance)
 			mesh.material_override.albedo_color = Color(255 / distance, 0, 0, .4)
+			
+			red_hot_sound.volume_db = -12
+			red_hot_sound.pitch_scale = 255/distance
+			red_hot_sound.play()
 		else:
+			red_hot_sound.stop()
 			mesh.material_override.albedo_color = Color(1, 1, 1, .4)
 	
 	if held_item == HELD_ITEM.DART:
@@ -99,6 +107,7 @@ func _physics_process(delta: float) -> void:
 			Globals.add_child(dart)
 			dart.global_position = $%Dart.global_position
 			dart.global_rotation = camera.global_rotation
+			$DartThrowAudio.play()
 			dart_cd = 1.0
 			$%Dart.visible = false
 			await get_tree().create_timer(1).timeout
@@ -107,6 +116,7 @@ func _physics_process(delta: float) -> void:
 
 func handle_hold_item(item: HELD_ITEM) -> void:
 	print("holding ", item)
+	var was_holding_item = held_item != HELD_ITEM.NONE
 	lose_held_item()
 	held_item = item
 	
@@ -123,6 +133,13 @@ func handle_hold_item(item: HELD_ITEM) -> void:
 			$%RedGem.visible = true
 		HELD_ITEM.DART:
 			$%Dart.visible = true
+	
+	if was_holding_item:
+		pickup_sound.pitch_scale = .7
+		pickup_sound.play()
+	elif item != HELD_ITEM.NONE:
+		pickup_sound.pitch_scale = 1.0
+		pickup_sound.play()
 
 func lose_held_item() -> void:
 	print("no longer holding item")

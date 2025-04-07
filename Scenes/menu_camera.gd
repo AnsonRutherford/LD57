@@ -14,3 +14,5 @@ func _process(delta: float) -> void:
 	
 	if Input.is_action_pressed("ui_down"):
 		global_position -= delta * Vector3(0, 100, 0)
+		
+	get_parent_node_3d().rotate_y(PI * delta / 10)

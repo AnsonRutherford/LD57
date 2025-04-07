@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://p6topo8tswhw"]
+[gd_scene load_steps=19 format=3 uid="uid://p6topo8tswhw"]
 
 [ext_resource type="Script" uid="uid://c8ycnna57ggbv" path="res://player.gd" id="1_3vv5g"]
 [ext_resource type="ArrayMesh" uid="uid://bsrdgmt2fu12q" path="res://assets/mirror.res" id="2_3s7hn"]
@@ -7,6 +7,9 @@
 [ext_resource type="ArrayMesh" uid="uid://g8tn2n1q21rh" path="res://assets/ramp-gem-red_Cylinder.res" id="4_ko4v8"]
 [ext_resource type="ArrayMesh" uid="uid://bf41p27w502pv" path="res://assets/ramp-gem-blue_Cylinder.res" id="5_8yuhy"]
 [ext_resource type="ArrayMesh" uid="uid://2q50nd4meq08" path="res://assets/dart_Cylinder_001.res" id="7_h0t6j"]
+[ext_resource type="AudioStream" uid="uid://dthhlvdljx73f" path="res://audio/pickup.ogg" id="8_ko4v8"]
+[ext_resource type="AudioStream" uid="uid://bubjgc4786ddj" path="res://audio/synth.wav" id="9_8yuhy"]
+[ext_resource type="AudioStream" uid="uid://cel133eerqla8" path="res://audio/dart-throw.ogg" id="10_4x33a"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_xhfnw"]
 radius = 0.4
@@ -125,3 +128,14 @@ collision_mask = 8
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="HotColdArea"]
 shape = SubResource("BoxShape3D_xhfnw")
+
+[node name="PickupAudio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_ko4v8")
+volume_db = 12.0
+
+[node name="RedHotAudio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_8yuhy")
+
+[node name="DartThrowAudio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_4x33a")
+mix_target = 2

@@ -13,7 +13,7 @@ dest_files=["res://.godot/imported/puzzle_jingle.ogg-0726a7d2a8afa19b5a5647a80d1
 [params]
 
 loop=false
-loop_offset=0
-bpm=0
+loop_offset=0.0
+bpm=0.0
 beat_count=0
 bar_beats=4

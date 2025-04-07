@@ -1,0 +1,37 @@
+[gd_resource type="Theme" load_steps=6 format=3 uid="uid://bv5xocy8juhm8"]
+
+[ext_resource type="Texture2D" uid="uid://bjs5k2eoxbws8" path="res://assets/blue-button.png" id="1_dqftw"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dqftw"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_q2n1a"]
+texture = ExtResource("1_dqftw")
+texture_margin_left = 32.0
+texture_margin_top = 32.0
+texture_margin_right = 32.0
+texture_margin_bottom = 32.0
+modulate_color = Color(0.637843, 0.637843, 0.637843, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ce31t"]
+texture = ExtResource("1_dqftw")
+texture_margin_left = 32.0
+texture_margin_top = 32.0
+texture_margin_right = 32.0
+texture_margin_bottom = 32.0
+modulate_color = Color(0.60933, 0.60933, 0.60933, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vrpwn"]
+texture = ExtResource("1_dqftw")
+texture_margin_left = 32.0
+texture_margin_top = 32.0
+texture_margin_right = 32.0
+texture_margin_bottom = 32.0
+modulate_color = Color(0.548962, 0.548963, 0.548962, 1)
+
+[resource]
+Button/constants/outline_size = 6
+Button/font_sizes/font_size = 24
+Button/styles/focus = SubResource("StyleBoxEmpty_dqftw")
+Button/styles/hover = SubResource("StyleBoxTexture_q2n1a")
+Button/styles/normal = SubResource("StyleBoxTexture_ce31t")
+Button/styles/pressed = SubResource("StyleBoxTexture_vrpwn")

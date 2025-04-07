@@ -50,9 +50,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.9189, 15.6, 17.3541)
 operation = 2
 size = Vector3(3, 21, 3)
 
-[node name="HotColdSpot" parent="CSGCombiner3D" instance=ExtResource("2_ke71a")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -35.0984, 0.5, -0.678105)
-
 [node name="ItemPillar" parent="." instance=ExtResource("2_dy40a")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.6089, 1.5, 14.3696)
 held_item = 7
@@ -83,3 +80,7 @@ puzzle = 4
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27, 21, 17.3)
 script = ExtResource("5_yoym1")
 action = "Level3Skip"
+
+[node name="HotColdSpot" parent="." instance=ExtResource("2_ke71a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -35.0984, 0.5, -0.678105)
+puzzle = 7
