@@ -7,6 +7,8 @@ static var registry: Dictionary[String, ItemPillar] = {}
 
 @onready var light_beam := %LightBeam # Used so Light Puzzle can manipulate it
 
+@onready var mirror_shift_sound: AudioStreamPlayer3D = $MirrorShiftSound
+
 @onready var items: Dictionary[Player.HELD_ITEM, Node3D] = {
 	Player.HELD_ITEM.MIRROR: $Mirror,
 	Player.HELD_ITEM.BOULDER_LOOT: $"Boulder Loot",
@@ -52,6 +54,9 @@ func interact() -> void:
 		tween.tween_property(items[held_item], "rotation", rotation, rotation_duration)
 		rotation = Vector3(0, angles[rotate_state], 0)
 		tween.tween_property(items[held_item], "rotation", rotation, 0)
+		
+		mirror_shift_sound.pitch_scale = randf_range(.8, 1.2)
+		mirror_shift_sound.play()
 	
 	Globals.PILLAR_INTERACT.emit(self)
 	

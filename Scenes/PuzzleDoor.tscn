@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://bwtwjlhrpa181"]
 
-[ext_resource type="Script" path="res://Scripts/puzzle_door.gd" id="1_rsw5k"]
+[ext_resource type="Script" uid="uid://cemfe2wa6jxtx" path="res://Scripts/puzzle_door.gd" id="1_rsw5k"]
 [ext_resource type="Material" uid="uid://bh213bu1m3npl" path="res://Materials/brick.tres" id="2_s542k"]
 [ext_resource type="AudioStream" uid="uid://wt4hv1xj2obx" path="res://audio/rumble.ogg" id="3_jv1up"]
 
@@ -24,3 +24,5 @@ shape = SubResource("ConcavePolygonShape3D_rsw5k")
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("3_jv1up")
+volume_db = 12.0
+pitch_scale = 0.2
