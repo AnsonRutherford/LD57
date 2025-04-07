@@ -1,0 +1,10 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://k04i8d68vvti"]
+
+[ext_resource type="Shader" uid="uid://b12hfihqkre86" path="res://Materials/Shaders/second.gdshader" id="1_5xnvb"]
+[ext_resource type="Texture2D" uid="uid://c6k3j5e6bi4ys" path="res://Materials/skull_body.png" id="2_ivurh"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_5xnvb")
+shader_parameter/albedo_texture = ExtResource("2_ivurh")
+shader_parameter/pixel_scale = 256.0

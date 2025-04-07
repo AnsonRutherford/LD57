@@ -1,16 +1,29 @@
-[gd_scene load_steps=4 format=3 uid="uid://wh64rs13lu1q"]
+[gd_scene load_steps=7 format=3 uid="uid://wh64rs13lu1q"]
 
 [ext_resource type="Script" uid="uid://cftpa00e4qws" path="res://Scripts/npc.gd" id="1_acqhf"]
+[ext_resource type="Material" uid="uid://k04i8d68vvti" path="res://Materials/second.tres" id="2_g6unj"]
+[ext_resource type="Texture2D" uid="uid://boalpxngh6nkv" path="res://Materials/skull.png" id="2_xxsvc"]
 
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_g8par"]
+[sub_resource type="QuadMesh" id="QuadMesh_g6unj"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_h1ryf"]
+render_priority = -1
+transparency = 1
+shading_mode = 0
+albedo_texture = ExtResource("2_xxsvc")
+texture_filter = 0
+billboard_keep_scale = true
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_0uak4"]
 
 [node name="NPC" type="Node3D"]
 script = ExtResource("1_acqhf")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-mesh = SubResource("CapsuleMesh_g8par")
+[node name="Visual" type="MeshInstance3D" parent="."]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0.0983534, 0)
+material_override = ExtResource("2_g6unj")
+mesh = SubResource("QuadMesh_g6unj")
+surface_material_override/0 = SubResource("StandardMaterial3D_h1ryf")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
 collision_layer = 2
@@ -18,3 +31,6 @@ collision_mask = 0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
 shape = SubResource("CapsuleShape3D_0uak4")
+
+[node name="EyeContact" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.367722, 0)
