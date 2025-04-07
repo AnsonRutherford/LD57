@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://8c2ev7rtlxee"]
+[gd_scene load_steps=14 format=3 uid="uid://8c2ev7rtlxee"]
 
 [ext_resource type="Material" uid="uid://bh213bu1m3npl" path="res://Materials/brick.tres" id="1_nhyoi"]
 [ext_resource type="Script" uid="uid://cntn6xl1cwff" path="res://Scripts/portal.gd" id="2_e3umy"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://dyajyyndq8bvt" path="res://Materials/money_ghost.png" id="4_uclbc"]
 [ext_resource type="Script" uid="uid://ctwjkqu4ca32y" path="res://Scripts/mummy.gd" id="5_uclbc"]
 [ext_resource type="Script" uid="uid://byumdsmsokont" path="res://Scenes/explorer_ghost.gd" id="6_3ips4"]
+[ext_resource type="Texture2D" uid="uid://dpydj3pimbxm0" path="res://Materials/explorer_ghost.png" id="6_gad1e"]
 [ext_resource type="PackedScene" uid="uid://djyal4hxbmr26" path="res://models/sarcophagus.glb" id="6_nhyoi"]
 [ext_resource type="PackedScene" uid="uid://5c7dda6t1723" path="res://Scenes/rotatable_switch.tscn" id="7_uclbc"]
 
@@ -95,14 +96,12 @@ collision_mask = 4
 shape = SubResource("BoxShape3D_mml4d")
 
 [node name="Explorer Ghost" type="Sprite3D" parent="."]
-
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -10, 2, 0.5)
-texture = ExtResource("4_nhyoi")
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -6.09855, 1.4, 0.5)
+pixel_size = 0.015
+billboard = 2
+texture_filter = 0
+texture = ExtResource("6_gad1e")
 script = ExtResource("6_3ips4")
-
-[node name="Label3D" type="Label3D" parent="Explorer Ghost"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-text = "EXPLORER GHOST"
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Explorer Ghost"]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, -0.5, 0)

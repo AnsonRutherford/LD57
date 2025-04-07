@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://be1ony6j0aaqk"]
+[gd_scene load_steps=11 format=3 uid="uid://be1ony6j0aaqk"]
 
 [ext_resource type="Material" uid="uid://bh213bu1m3npl" path="res://Materials/brick.tres" id="1_8f8qx"]
 [ext_resource type="PackedScene" uid="uid://cxwdrbb3xtufd" path="res://Scenes/Interactables/item_pillar.tscn" id="2_dy40a"]
@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://bwtwjlhrpa181" path="res://Scenes/PuzzleDoor.tscn" id="4_613ma"]
 [ext_resource type="Script" uid="uid://6yf2x3v3ivdm" path="res://Scripts/cheat_spot.gd" id="5_yoym1"]
 [ext_resource type="PackedScene" uid="uid://b0akjn27q6flf" path="res://Scenes/SecretNote.tscn" id="7_cwbin"]
-[ext_resource type="Texture2D" uid="uid://hu2tdxpc24df" path="res://Materials/pyramid token.png" id="8_lbjso"]
+[ext_resource type="Texture2D" uid="uid://hu2tdxpc24df" path="res://Materials/pyramid token.png" id="8_25c1q"]
 [ext_resource type="PackedScene" uid="uid://catipv0japc8o" path="res://Scenes/PuzzleLight.tscn" id="8_lbjso"]
 [ext_resource type="PackedScene" uid="uid://wh64rs13lu1q" path="res://Scenes/npc.tscn" id="9_vbysv"]
 
@@ -105,7 +105,7 @@ puzzle = 7
 
 [node name="SecretNote" parent="." instance=ExtResource("7_cwbin")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -42.2129, 1.845, 0.832123)
-texture = ExtResource("8_lbjso")
+texture = ExtResource("8_25c1q")
 puzzle = 7
 lines = Array[String](["A small mysterious token"])
 
