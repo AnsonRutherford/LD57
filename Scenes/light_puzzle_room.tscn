@@ -130,3 +130,4 @@ lines = Array[String](["I feel like something's missing......"])
 
 [node name="SecretNote" parent="." instance=ExtResource("9_g8par")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.97752, 2.06945, 2.11135)
+lines = Array[String](["Testing a text thats text", "line two", "oh man its a third line"])

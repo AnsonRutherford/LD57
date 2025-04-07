@@ -34,7 +34,8 @@ signal GAME_UNPAUSED
 
 signal CURSE_LEVEL_CHANGED
 
-signal SECRET_NOTE_ACQUIRED
+signal SECRET_NOTE_ACQUIRED(note: SecretNote)
+signal NOTE_HOVERED (note_visual: InventoryNoteVisual)
 
 func _ready() -> void:
 	var node = post_processing_scene.instantiate()
