@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://cxwdrbb3xtufd" path="res://Scenes/Interactables/item_pillar.tscn" id="4_n7p4q"]
 [ext_resource type="PackedScene" uid="uid://catipv0japc8o" path="res://Scenes/PuzzleLight.tscn" id="5_x4ak0"]
 [ext_resource type="Script" uid="uid://6yf2x3v3ivdm" path="res://Scripts/cheat_spot.gd" id="6_xxtc8"]
-[ext_resource type="PackedScene" path="res://Scenes/camo_dart_board.tscn" id="7_k6bsa"]
+[ext_resource type="PackedScene" uid="uid://b6uwu1c84kjxf" path="res://Scenes/camo_dart_board.tscn" id="7_k6bsa"]
 [ext_resource type="PackedScene" uid="uid://b0akjn27q6flf" path="res://Scenes/SecretNote.tscn" id="8_klmyl"]
 
 [node name="HotColdPuzzle" type="Node3D"]
