@@ -18,7 +18,7 @@ func _process(delta: float) -> void:
 	time_till_next_ghost -= delta
 	
 	if time_till_next_ghost < 0:
-		time_till_next_ghost = randi_range(5, 10) if Globals.curse_level == Globals.CURSE.EXTRA else randi_range(20, 25) 
+		time_till_next_ghost = randi_range(3, 7) if Globals.curse_level == Globals.CURSE.EXTRA else randi_range(20, 25) 
 		spawn_ghost()
 
 func spawn_ghost():

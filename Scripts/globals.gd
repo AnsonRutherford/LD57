@@ -84,6 +84,7 @@ func _load_scene(scene: PackedScene) -> void:
 	add_child(active_scene)
 	
 func change_curse_level(curse: CURSE) -> void:
+	print("curse level is now ", curse)
 	curse_level = curse
 	CURSE_LEVEL_CHANGED.emit()
 	

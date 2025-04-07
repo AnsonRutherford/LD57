@@ -33,9 +33,9 @@ func next_line() -> void:
 		Globals.end_dialogue()
 	
 func _on_curse_level_changed() -> void:
-	if Globals.curse_level == Globals.CURSE.NOT_CURSED:
-		visual.visible = false
-		body.process_mode = PROCESS_MODE_DISABLED
-	else:
+	if Globals.curse_level == Globals.CURSE.EXTRA:
 		visual.visible = true
 		body.process_mode = PROCESS_MODE_INHERIT
+	else:
+		visual.visible = false
+		body.process_mode = PROCESS_MODE_DISABLED
