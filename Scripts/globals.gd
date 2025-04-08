@@ -7,6 +7,7 @@ var dialogue := false
 
 var main_menu_scene: PackedScene = preload("res://Scenes/main_menu.tscn")
 var gameplay_scene: PackedScene = preload("res://Scenes/gameplay.tscn")
+var credits_scene: PackedScene = preload("res://Scenes/credits.tscn")
 
 var post_processing: PostProcessing = null
 
@@ -77,6 +78,13 @@ func load_gameplay() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	post_processing.enable_depth_fade()
 	_load_scene(gameplay_scene)
+	
+func load_credits() -> void:
+	paused = false
+	dialogue = false
+	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+	post_processing.disable_depth_fade()
+	_load_scene(credits_scene)
 
 func _load_scene(scene: PackedScene) -> void:
 	if active_scene != null:
