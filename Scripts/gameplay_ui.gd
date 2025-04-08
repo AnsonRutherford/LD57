@@ -4,6 +4,7 @@ extends Control
 @onready var note_container = $"Pause Menu/NoteContainer"
 @onready var focused_note_container = $"Pause Menu/FocusedNoteContainer"
 @onready var exit_button = $"Pause Menu/Exit Button"
+@onready var close_button = $"Pause Menu/Exit Menu Button"
 
 @onready var dialogue = $Dialogue
 @onready var text = $Dialogue/Text
@@ -30,6 +31,8 @@ func _ready() -> void:
 	Globals.CONTINUE_DIALOGUE.connect(_on_dialogue)
 	Globals.END_DIALOGUE.connect(_on_end_dialogue)
 	exit_button.pressed.connect(_on_exit_button_pressed)
+	close_button.pressed.connect(_on_exit_menu_pressed)
+	
 	Globals.SECRET_NOTE_ACQUIRED.connect(_on_secret_note_found)
 	Globals.NOTE_HOVERED.connect(_on_note_hovered)
 	
@@ -72,6 +75,9 @@ func _on_end_dialogue() -> void:
 	
 func _on_exit_button_pressed():
 	Globals.load_main_menu()
+
+func _on_exit_menu_pressed():
+	Globals.toggle_pause()
 
 func _on_secret_note_found(note_found: SecretNote):
 	var note: InventoryNoteVisual = preload("res://Scenes/InventoryNoteVisual.tscn").instantiate()

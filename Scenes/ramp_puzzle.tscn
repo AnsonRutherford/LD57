@@ -91,7 +91,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29, 4, 16)
 puzzle = 3
 
 [node name="PuzzleDoor2" parent="." instance=ExtResource("3_q0ntu")]
-transform = Transform3D(1.54, 0, 0, 0, 1.54, 0, 0, 0, 1.54, -28.4, 4, 8.7)
+transform = Transform3D(1.54, 0, 0, 0, 1.54, 0, 0, 0, 1.54, -28.4, 5.6, 8.7)
 puzzle = 5
 
 [node name="Item Pillar" parent="." instance=ExtResource("4_71k7q")]
@@ -171,10 +171,12 @@ lines = Array[String](["A small mysterious token"])
 
 [node name="PuzzleLight2" parent="." instance=ExtResource("5_5imf0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.3888, 2.71004, 8.72862)
+puzzle = 5
 light_level = 5.0
 
 [node name="PuzzleLight3" parent="." instance=ExtResource("5_5imf0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.0388, 7.71004, 16.1286)
+puzzle = 3
 
 [node name="NPC" parent="." instance=ExtResource("14_mo53j")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.8619, 1.40165, 11.4954)

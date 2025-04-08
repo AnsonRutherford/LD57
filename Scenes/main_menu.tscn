@@ -52,7 +52,7 @@ grow_vertical = 2
 
 [node name="Label" type="Label" parent="VBoxContainer"]
 layout_mode = 2
-text = "NAME_OF_GAME"
+text = "The Endless Pyramid"
 label_settings = SubResource("LabelSettings_ce3w2")
 horizontal_alignment = 1
 
@@ -67,7 +67,9 @@ horizontal_alignment = 1
 unique_name_in_owner = true
 layout_mode = 2
 theme = ExtResource("2_ce3w2")
-text = "Play"
+theme_override_constants/outline_size = 20
+theme_override_font_sizes/font_size = 75
+text = "Click Here To Play"
 
 [node name="World" type="Node3D" parent="."]
 

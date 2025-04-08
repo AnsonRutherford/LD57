@@ -22,3 +22,4 @@ func portal_done() -> void:
 	activated = false
 	Globals.player.cycle_complete()
 	Globals.post_processing.reset()
+	Globals.PORTALED.emit()
