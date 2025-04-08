@@ -1,12 +1,13 @@
 extends Node3D
 
 @export var id: int = -1
+@export var texture: Texture2D = null
 var current_rotation: int = 0
-@onready var mesh: MeshInstance3D = $MeshInstance3D
+@onready var sprite: Sprite3D = $Sprite3D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass
+	sprite.texture = texture
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -15,7 +16,7 @@ func _process(delta: float) -> void:
 
 func interact() -> void:
 	increment_rotation()
-	mesh.rotate_z(PI / 2)
+	sprite.rotate_z(PI / 2)
 	print("rotation now is: ", current_rotation)
 	Globals.check_win_condition(id, current_rotation)
 	$AudioStreamPlayer3D.play(25.2)

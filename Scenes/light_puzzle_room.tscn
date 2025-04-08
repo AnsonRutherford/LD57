@@ -164,7 +164,7 @@ lines = Array[String](["A small mysterious token"])
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 20, 2.7, 5)
 texture = ExtResource("13_222sy")
 puzzle = 9
-lines = Array[String](["An stone tablet written in an ancient language", "You found this in the first chamber of the ancient tomb you've come to explore", "Left click to pick up", "Right click to interact", "\"P\" to pause and review inventory", "WASD to move, shift to run"])
+lines = Array[String](["A stone tablet written in an ancient language", "You found this in the first chamber of the ancient tomb you've come to explore", "Many have come before you, but none have returned", "Left click to interact", "Right click to pickup", "\"I\" to view inventory", "\"WASD\" to move, SHIFT to run"])
 
 [node name="PuzzleLight" parent="." instance=ExtResource("12_m7p7u")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 9, 3, 0.7)

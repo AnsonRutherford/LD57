@@ -9,7 +9,7 @@ func _ready() -> void:
 	Globals.GHOST_HIT.connect(ghost_hit)
 
 func _process(delta: float) -> void:
-	if Globals.curse_level == Globals.CURSE.NOT_CURSED || Globals.dialogue || Globals.paused:
+	if Globals.curse_level == Globals.CURSE.NOT_CURSED || Globals.dialogue || Globals.paused || Globals.player == null:
 		return
 	
 	if Globals.player.is_in_treasure_room():
