@@ -86,6 +86,7 @@ action = "Level5Skip"
 
 [node name="Mummy" type="Sprite3D" parent="."]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -15, 2, -5.5)
+modulate = Color(1, 1, 1, 0.501961)
 pixel_size = 0.02
 billboard = 2
 texture_filter = 0
@@ -101,6 +102,7 @@ shape = SubResource("BoxShape3D_mml4d")
 
 [node name="Explorer Ghost" type="Sprite3D" parent="."]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -9.60725, 1.4, 0.5)
+modulate = Color(1, 1, 1, 0.501961)
 pixel_size = 0.015
 billboard = 2
 texture_filter = 0
