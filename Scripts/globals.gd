@@ -25,6 +25,7 @@ signal BOULDER_TRAP
 signal PILLAR_INTERACT(pillar: ItemPillar)
 signal PILLAR_PICKUP(pillar: ItemPillar)
 signal ROTABLE_SWITCH_TOUCHED(id: int, position: int)
+signal PORTALED
 
 signal START_DIALOGUE(speaker: Node3D, text: String)
 signal CONTINUE_DIALOGUE(speaker: Node3D, text: String)

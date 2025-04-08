@@ -9,7 +9,9 @@ var line_index = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	visible = false
+	$StaticBody3D.process_mode = PROCESS_MODE_DISABLED
+	Globals.PORTALED.connect(visualize)
 
 func interact():
 	var lines: Array[String]
@@ -40,3 +42,7 @@ func next_line() -> void:
 		Globals.DIALOGUE_NEXT.disconnect(next_line)
 		talked_to_yet = true
 		Globals.end_dialogue()
+
+func visualize():
+	visible = true
+	$StaticBody3D.process_mode = PROCESS_MODE_INHERIT
